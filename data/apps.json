@@ -1,74 +1,88 @@
 {
   "apps": [
     {
-      "name": "Waitlists",
-      "description": "Build and manage waitlists for your products and services",
-      "dashboardUrl": "https://waitlist.saveaday.ai/dashboard",
-      "icon": "📋",
-      "color": "purple"
-    },
-    {
       "name": "Leads",
-      "description": "Create beautiful lead capture forms and manage your leads",
+      "description": "Capture and qualify inbound enquiries",
       "dashboardUrl": "https://leads.saveaday.ai/dashboard",
       "icon": "📝",
       "color": "green"
     },
     {
+      "name": "Contacts",
+      "description": "Your customer relationship hub",
+      "dashboardUrl": "https://contacts.saveaday.ai/dashboard",
+      "icon": "👥",
+      "color": "blue"
+    },
+    {
       "name": "Bookings",
-      "description": "Schedule and manage appointments with ease",
+      "description": "Appointments and resource scheduling",
       "dashboardUrl": "https://bookings.saveaday.ai/dashboard",
       "icon": "📅",
       "color": "blue"
     },
     {
-      "name": "Links",
-      "description": "Create beautiful link-in-bio pages for your brand",
-      "dashboardUrl": "https://links.saveaday.ai/dashboard",
-      "icon": "🔗",
-      "color": "teal"
-    },
-    {
       "name": "Catalogues",
-      "description": "Build and share product catalogs and collections",
+      "description": "Products and services, beautifully presented",
       "dashboardUrl": "https://catalogues.saveaday.ai/dashboard",
       "icon": "📚",
       "color": "indigo"
     },
     {
+      "name": "Waitlists",
+      "description": "Build anticipation for launches and availability",
+      "dashboardUrl": "https://waitlist.saveaday.ai/dashboard",
+      "icon": "📋",
+      "color": "purple"
+    },
+    {
       "name": "Surveys",
-      "description": "Create surveys and collect feedback from your audience",
+      "description": "Collect feedback and measure satisfaction",
       "dashboardUrl": "https://surveys.saveaday.ai/dashboard",
       "icon": "📊",
       "color": "pink"
     },
     {
       "name": "Feeds",
-      "description": "Curate and share news feeds with your audience",
+      "description": "Publish updates and announcements",
       "dashboardUrl": "https://feeds.saveaday.ai/dashboard",
       "icon": "📰",
       "color": "orange"
     },
     {
+      "name": "Links",
+      "description": "Bio-link and micro landing pages",
+      "dashboardUrl": "https://links.saveaday.ai/dashboard",
+      "icon": "🔗",
+      "color": "teal"
+    },
+    {
       "name": "Tasks",
-      "description": "Manage tasks and projects with kanban boards",
+      "description": "Internal to-dos and team boards",
       "dashboardUrl": "https://tasks.saveaday.ai/dashboard",
       "icon": "✓",
       "color": "blue"
     },
     {
       "name": "Referrals",
-      "description": "Create referral campaigns and grow your audience",
+      "description": "Turn customers into your best marketers",
       "dashboardUrl": "https://referrals.saveaday.ai/dashboard",
       "icon": "🤝",
       "color": "violet"
     },
     {
-      "name": "SaveADay",
-      "description": "Your central hub for all automation and productivity tools",
-      "dashboardUrl": "https://app.saveaday.ai/dashboard",
-      "icon": "✨",
-      "color": "blue"
+      "name": "Rewards",
+      "description": "Loyalty programmes that drive repeat business",
+      "dashboardUrl": "https://rewards.saveaday.ai/dashboard",
+      "icon": "🎁",
+      "color": "pink"
+    },
+    {
+      "name": "Automation",
+      "description": "Connect apps and let things run on their own",
+      "dashboardUrl": "https://automation.saveaday.ai/dashboard",
+      "icon": "⚡",
+      "color": "indigo"
     }
   ]
 }

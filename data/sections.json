@@ -1,24 +1,128 @@
 {
-  "whyItMatters": {
-    "title": "What will you do with the day you get back?",
-    "text": "Every automated task unlocks focus for the work, people, and ideas that actually move you forward."
+  "problem": {
+    "comparisons": [
+      {
+        "old": "You update records manually",
+        "new": "Every step triggers the next one for you"
+      },
+      {
+        "old": "Customer names sit in a spreadsheet",
+        "new": "Customers flow through a living journey"
+      },
+      {
+        "old": "You react to problems",
+        "new": "AI spots opportunities before you miss them"
+      }
+    ]
   },
-  "howItWorks": [
+  "chatExamples": [
+    "Show me today's bookings.",
+    "Send a thank-you to everyone who visited this week.",
+    "Create a 10% discount for returning customers.",
+    "How many new leads came in this month?",
+    "Schedule a follow-up with Ahmed for next Tuesday."
+  ],
+  "flows": [
     {
-      "title": "Spot the busywork",
-      "desc": "List the updates, reminders, and follow-ups that eat hours every week."
+      "id": "lead-to-booking",
+      "title": "New enquiry → instant reply with catalogue & booking link",
+      "apps": ["Leads", "Catalogues", "Bookings"],
+      "timeSaved": "20 min",
+      "category": "Attract"
     },
     {
-      "title": "Switch on automation",
-      "desc": "Pick the SaveADay app or recipe that plugs into your tools and handles the task for you."
+      "id": "booking-to-contact",
+      "title": "Booking confirmed → customer added → follow-up scheduled",
+      "apps": ["Bookings", "Contacts", "Tasks"],
+      "timeSaved": "15 min",
+      "category": "Convert"
     },
     {
-      "title": "Spend the saved day well",
-      "desc": "Dashboards, alerts, and confirmations run in the background while you focus on what matters."
+      "id": "visit-to-reward",
+      "title": "Customer visits → earns loyalty points → gets a feedback request",
+      "apps": ["Bookings", "Rewards", "Surveys"],
+      "timeSaved": "15 min",
+      "category": "Nurture"
+    },
+    {
+      "id": "feedback-to-referral",
+      "title": "Great feedback → referral invitation → reward if they bring a friend",
+      "apps": ["Surveys", "Referrals", "Rewards"],
+      "timeSaved": "10 min",
+      "category": "Retain"
+    },
+    {
+      "id": "referral-to-lead",
+      "title": "Referral succeeds → new lead in pipeline → welcome message fires",
+      "apps": ["Referrals", "Leads", "Contacts"],
+      "timeSaved": "25 min",
+      "category": "Attract"
+    },
+    {
+      "id": "update-to-notify",
+      "title": "Update published → shared on link page → waitlist notified",
+      "apps": ["Feeds", "Links", "Waitlists"],
+      "timeSaved": "10 min",
+      "category": "Nurture"
+    }
+  ],
+  "audiences": [
+    {
+      "id": "small",
+      "name": "Small Business",
+      "tagline": "Run your shop like a franchise",
+      "description": "You wear every hat. SaveADay handles the repetitive customer work — follow-ups, bookings, loyalty — so you can focus on what you do best.",
+      "examples": "Salons · Clinics · Studios · Cafés · Consultants"
+    },
+    {
+      "id": "medium",
+      "name": "Medium Business",
+      "tagline": "Grow without growing headcount",
+      "description": "Multiple locations, growing teams, more moving parts. SaveADay keeps every customer touchpoint consistent across your operation — without hiring more people.",
+      "examples": "Agencies · Hospitality groups · Professional services · Health & wellness chains"
+    },
+    {
+      "id": "enterprise",
+      "name": "Enterprise",
+      "tagline": "Customer lifecycle at scale",
+      "description": "White-label the entire SaveADay platform under your brand. Single sign-on, isolated data, works with your existing stack out of the box.",
+      "examples": "Franchise networks · SaaS platforms · Managed service providers"
+    }
+  ],
+  "integrations": [
+    { "category": "Calendar & Scheduling", "items": ["Google Calendar"] },
+    { "category": "Email & Communication", "items": ["Gmail", "WhatsApp", "Telegram"] },
+    { "category": "Files & Documents", "items": ["Google Drive", "Google Docs"] },
+    { "category": "Contacts", "items": ["Google Contacts"] },
+    { "category": "Websites", "items": ["Embeddable widgets", "Link pages"] },
+    { "category": "Custom", "items": ["Webhooks"] }
+  ],
+  "metrics": [
+    {
+      "label": "Hours saved weekly",
+      "value": "8+",
+      "context": "per team member"
+    },
+    {
+      "label": "First reply to enquiries",
+      "value": "<1 min",
+      "context": "instant, every time"
+    },
+    {
+      "label": "Customer retention lift",
+      "value": "+23%",
+      "context": "with loyalty rewards"
+    },
+    {
+      "label": "Referral conversion",
+      "value": "3×",
+      "context": "vs. asking manually"
     }
   ],
   "cta": {
-    "title": "Ready to save your next day?",
-    "button": "Join the Waitlist"
+    "title": "Ready to stop juggling software and start growing?",
+    "body": "Join hundreds of businesses using SaveADay to turn one-time buyers into lifelong customers — on autopilot.",
+    "primary": "Start Free",
+    "secondary": "Talk to Sales"
   }
 }

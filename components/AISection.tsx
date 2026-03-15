@@ -1,98 +1,87 @@
-import { Sparkles, Brain, Users, Lightbulb, Shield, Wand2 } from "lucide-react";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Lightbulb, Brain, Users, Shield, MessageSquare, Clock } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 
-const capabilities = [
+const youDecide = [
   {
-    title: "Your Business Logic",
-    description: "You define the rules, triggers, and workflows. Your domain expertise stays at the center.",
-    icon: Lightbulb,
-    isHuman: true
-  },
-  {
-    title: "AI-Powered Execution",
-    description: "AI handles the heavy lifting—scheduling, responses, data sync—without manual intervention.",
-    icon: Brain,
-    isHuman: false
-  },
-  {
-    title: "Your Customer Relationships",
-    description: "You maintain the personal touch. AI amplifies your reach, not replaces your voice.",
+    text: "Which customers matter most",
     icon: Users,
-    isHuman: true
   },
   {
-    title: "Intelligent Insights",
-    description: "AI surfaces patterns, suggests optimizations, and predicts what needs attention next.",
-    icon: Sparkles,
-    isHuman: false
+    text: "What your brand sounds like",
+    icon: MessageSquare,
   },
   {
-    title: "Your Strategic Decisions",
-    description: "You set the direction. AI executes the tactics so you can focus on growth.",
+    text: "When to offer discounts or rewards",
+    icon: Clock,
+  },
+  {
+    text: "How to handle tricky situations",
     icon: Shield,
-    isHuman: true
+  },
+];
+
+const aiHandles = [
+  {
+    text: "Sending the right message at the right time",
+    icon: MessageSquare,
   },
   {
-    title: "Adaptive Automation",
-    description: "AI learns from your patterns and continuously improves workflow efficiency.",
-    icon: Wand2,
-    isHuman: false
-  }
+    text: "Following up before things slip through the cracks",
+    icon: Clock,
+  },
+  {
+    text: "Spotting customers who might not come back",
+    icon: Users,
+  },
+  {
+    text: "Pulling together reports so you know what's working",
+    icon: Brain,
+  },
 ];
 
 export default function AISection() {
   return (
-    <div className="space-y-8">
-      {/* Two column layout for human vs AI */}
-      <div className="grid gap-6 lg:grid-cols-2">
-        {/* Human Column */}
-        <div className="space-y-4">
-          <div className="flex items-center gap-2 mb-6">
-            <div className="h-3 w-3 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600" />
-            <span className="text-sm font-semibold text-foreground uppercase tracking-wider">Powered by You</span>
-          </div>
-          {capabilities.filter(c => c.isHuman).map((item) => (
-            <Card 
-              key={item.title}
-              className="border-border/50 bg-gradient-to-br from-blue-50/50 to-indigo-50/50 hover:shadow-lg hover:-translate-y-0.5 transition-all"
-            >
-              <CardContent className="flex items-start gap-4 p-5">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 shadow-lg">
-                  <item.icon className="h-5 w-5 text-white" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-foreground mb-1">{item.title}</h4>
-                  <p className="text-sm text-muted-foreground">{item.description}</p>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+    <div className="grid gap-8 lg:grid-cols-2">
+      {/* Human side */}
+      <div className="space-y-4">
+        <div className="flex items-center gap-2.5 mb-6">
+          <div className="h-3 w-3 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600" />
+          <span className="text-sm font-bold text-foreground uppercase tracking-wider">You decide</span>
         </div>
+        {youDecide.map((item) => (
+          <Card
+            key={item.text}
+            className="border-border/50 bg-gradient-to-br from-blue-50/30 to-indigo-50/30 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
+          >
+            <CardContent className="flex items-center gap-4 p-5">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 shadow-md">
+                <item.icon className="h-5 w-5 text-white" />
+              </div>
+              <span className="text-sm font-medium text-foreground">{item.text}</span>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
 
-        {/* AI Column */}
-        <div className="space-y-4">
-          <div className="flex items-center gap-2 mb-6">
-            <div className="h-3 w-3 rounded-full bg-gradient-to-r from-purple-500 to-pink-600" />
-            <span className="text-sm font-semibold text-foreground uppercase tracking-wider">Assisted by AI</span>
-          </div>
-          {capabilities.filter(c => !c.isHuman).map((item) => (
-            <Card 
-              key={item.title}
-              className="border-border/50 bg-gradient-to-br from-purple-50/50 to-pink-50/50 hover:shadow-lg hover:-translate-y-0.5 transition-all"
-            >
-              <CardContent className="flex items-start gap-4 p-5">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 shadow-lg">
-                  <item.icon className="h-5 w-5 text-white" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-foreground mb-1">{item.title}</h4>
-                  <p className="text-sm text-muted-foreground">{item.description}</p>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+      {/* AI side */}
+      <div className="space-y-4">
+        <div className="flex items-center gap-2.5 mb-6">
+          <div className="h-3 w-3 rounded-full bg-gradient-to-r from-violet-500 to-purple-600" />
+          <span className="text-sm font-bold text-foreground uppercase tracking-wider">SaveADay handles</span>
         </div>
+        {aiHandles.map((item) => (
+          <Card
+            key={item.text}
+            className="border-border/50 bg-gradient-to-br from-violet-50/30 to-purple-50/30 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
+          >
+            <CardContent className="flex items-center gap-4 p-5">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500 to-purple-600 shadow-md">
+                <item.icon className="h-5 w-5 text-white" />
+              </div>
+              <span className="text-sm font-medium text-foreground">{item.text}</span>
+            </CardContent>
+          </Card>
+        ))}
       </div>
     </div>
   );

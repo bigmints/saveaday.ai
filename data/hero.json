@@ -1,40 +1,29 @@
 {
-  "headline": "Automate Repetitive Tasks. Save a Day Every Week.",
-  "cycles": [
-    "Week",
-    "Month",
-    "Year"
-  ],
-  "subtext": "Use SaveADay apps to automate your repetitive tasks and save a day every week to focus on what matters to you most.",
-  "stats": {
-    "week": {
-      "label": "This week",
-      "daysSaved": 1,
-      "summary": "Automate check-ins and inbox triage to reclaim one deep-focus day.",
-      "ideas": [
-        "Ship the project that keeps getting pushed by meetings.",
-        "Spend the day unblocking customers instead of chasing status."
-      ]
+  "headline": "Stop Managing Software. Start Growing Customer Value.",
+  "subtext": "SaveADay is a suite of 12+ AI-powered business apps that attract leads, convert bookings, nurture relationships, and reward loyalty — all working together, all manageable through a simple chat.",
+  "badge": "Agentic CLV Platform",
+  "valueProps": [
+    {
+      "label": "Attract",
+      "emoji": "🧲",
+      "text": "Capture leads, manage waitlists, and build audiences — without lifting a finger."
     },
-    "month": {
-      "label": "This month",
-      "daysSaved": 4,
-      "summary": "Stack four free days this month by letting SaveADay run your repeats.",
-      "ideas": [
-        "Plan the roadmap with clarity instead of last-minute fire drills.",
-        "Give your team a real break while automations keep work moving."
-      ]
+    {
+      "label": "Convert",
+      "emoji": "📅",
+      "text": "Turn enquiries into confirmed bookings and orders, instantly."
     },
-    "year": {
-      "label": "This year",
-      "daysSaved": 52,
-      "summary": "Earn 52 extra days to focus on the launches, clients, and people who matter.",
-      "ideas": [
-        "Turn the saved time into new revenue, products, or community wins.",
-        "Build the culture you want without busywork blocking the way."
-      ]
+    {
+      "label": "Nurture",
+      "emoji": "🤝",
+      "text": "Stay in touch through updates, feedback, and personalised follow-ups."
+    },
+    {
+      "label": "Retain",
+      "emoji": "🎁",
+      "text": "Reward loyalty and drive referrals so customers keep coming back."
     }
-  },
-  "ctaPrimary": "Start saving a day",
-  "ctaSecondary": "See how it works"
+  ],
+  "ctaPrimary": "Start Free",
+  "ctaSecondary": "See How It Works"
 }
