@@ -1,6 +1,7 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
 
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import "@/styles/globals.css";
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -18,6 +19,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <div className="font-sans">
         <Component {...pageProps} />
       </div>
+      <GoogleAnalytics />
     </>
   );
 }
