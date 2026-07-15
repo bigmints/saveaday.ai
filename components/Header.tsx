@@ -56,7 +56,7 @@ export default function Header() {
           <Link href="mailto:hello@saveaday.ai" className="text-[13px] text-white/90 hover:text-[#74EFC3] transition-colors">
             Contact
           </Link>
-          <Link href={`${AUTH_URL}/login`} className="text-[13px] text-white/90 hover:text-[#74EFC3] transition-colors">
+          <Link href={AUTH_URL} className="text-[13px] text-white/90 hover:text-[#74EFC3] transition-colors">
             Log in
           </Link>
           <Link
@@ -94,7 +94,7 @@ export default function Header() {
           <div className="h-px bg-white/10 my-2" />
           <div className="flex flex-col gap-4">
             <Link href="mailto:hello@saveaday.ai" className="text-lg text-white">Contact</Link>
-            <Link href={`${AUTH_URL}/login`} className="text-lg text-white">Log in</Link>
+            <Link href={AUTH_URL} className="text-lg text-white">Log in</Link>
             <Link
               href={`${AUTH_URL}/signup`}
               className="w-full text-center px-5 py-3 text-lg font-medium bg-[#3CA6A6] text-[#082B2B]"

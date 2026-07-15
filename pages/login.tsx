@@ -1,11 +1,8 @@
 import { useEffect } from 'react';
-import { useRouter } from 'next/router';
 
 export default function Login() {
-  const router = useRouter();
-
   useEffect(() => {
-    window.location.href = 'https://app.saveaday.ai/login';
+    window.location.href = 'https://app.saveaday.ai';
   }, []);
 
   return (
