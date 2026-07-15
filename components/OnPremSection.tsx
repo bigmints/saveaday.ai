@@ -17,20 +17,20 @@ const benefits = [
 
 export default function OnPremSection() {
   return (
-    <section id="private-ai" className="w-full bg-[#f0f0f0] py-24 md:py-32 scroll-mt-20">
-      <div className="mx-auto grid w-full max-w-[1400px] gap-14 px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-24 lg:px-12">
+    <section id="private-ai" className="w-full scroll-mt-16 bg-[#f0f0f0] py-16 sm:scroll-mt-20 sm:py-24 md:py-32">
+      <div className="mx-auto grid w-full max-w-[1400px] gap-10 px-4 sm:gap-14 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-24 lg:px-12">
         <div>
           <p className="text-[11px] font-bold text-[#3CA6A6] tracking-widest uppercase mb-4">Private and on-prem models</p>
-          <h2 className="font-serif text-4xl sm:text-5xl text-slate-900 leading-tight max-w-xl">
+          <h2 className="max-w-xl font-serif text-[34px] leading-tight text-slate-900 sm:text-5xl">
             Use the models your business already trusts.
           </h2>
-          <p className="mt-6 max-w-lg text-sm sm:text-[15px] leading-7 text-slate-600">
+          <p className="mt-5 max-w-lg text-sm leading-6 text-slate-600 sm:mt-6 sm:text-[15px] sm:leading-7">
             For organizations that need more control, SaveADay can use a private or on-prem model endpoint on infrastructure you manage. Your platform team stays in charge of the model while the business and customer experience stays familiar.
           </p>
 
-          <div className="mt-10 space-y-6">
+          <div className="mt-8 space-y-4 sm:mt-10 sm:space-y-6">
             {benefits.map((benefit, index) => (
-              <div key={benefit.title} className="grid grid-cols-[34px_1fr] gap-4 border-t border-slate-300 pt-5">
+              <div key={benefit.title} className="grid grid-cols-[30px_1fr] gap-3 border-t border-slate-300 pt-4 sm:grid-cols-[34px_1fr] sm:gap-4 sm:pt-5">
                 <span className="text-[10px] font-bold tracking-widest text-slate-400">0{index + 1}</span>
                 <div>
                   <h3 className="text-sm font-medium text-slate-900">{benefit.title}</h3>
@@ -41,7 +41,7 @@ export default function OnPremSection() {
           </div>
         </div>
 
-        <div className="relative overflow-hidden rounded-xl bg-[#111] p-6 shadow-xl sm:p-10 lg:p-12">
+        <div className="relative overflow-hidden rounded-xl bg-[#111] p-5 shadow-xl sm:p-10 lg:p-12">
           <div className="absolute inset-0 opacity-20 pointer-events-none" style={{
             backgroundImage: "radial-gradient(#fff 1px, transparent 1px)",
             backgroundSize: "22px 22px",
@@ -54,7 +54,7 @@ export default function OnPremSection() {
               <ShieldCheck className="h-4 w-4" />
             </div>
 
-            <div className="mt-12 flex flex-col items-center">
+            <div className="mt-8 flex flex-col items-center sm:mt-12">
               <div className="w-full max-w-sm rounded-xl border border-white/15 bg-white/[0.06] p-5 text-white shadow-2xl backdrop-blur-sm">
                 <div className="flex items-center gap-4">
                   <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-white/10">
@@ -80,12 +80,12 @@ export default function OnPremSection() {
               <div className="h-10 w-px border-l border-dashed border-white/25" />
 
               <div className="grid w-full grid-cols-2 gap-3">
-                <div className="rounded-xl border border-white/10 bg-white/[0.05] p-4 text-center text-white">
+                <div className="rounded-xl border border-white/10 bg-white/[0.05] p-3 text-center text-white sm:p-4">
                   <UsersRound className="mx-auto h-4 w-4 text-white/60" />
                   <p className="mt-3 text-[11px] font-medium">Your team</p>
                   <p className="mt-1 text-[9px] text-white/40">Same clear working day</p>
                 </div>
-                <div className="rounded-xl border border-white/10 bg-white/[0.05] p-4 text-center text-white">
+                <div className="rounded-xl border border-white/10 bg-white/[0.05] p-3 text-center text-white sm:p-4">
                   <HeartHandshake className="mx-auto h-4 w-4 text-white/60" />
                   <p className="mt-3 text-[11px] font-medium">Your customers</p>
                   <p className="mt-1 text-[9px] text-white/40">Same easy experience</p>

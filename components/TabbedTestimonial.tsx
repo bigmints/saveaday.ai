@@ -43,22 +43,22 @@ export default function TabbedTestimonial() {
   const active = moments[activeIndex];
 
   return (
-    <section id="for-customers" className="w-full bg-[#fafafa] py-24 border-t border-slate-200/60 scroll-mt-20">
-      <div className="w-full max-w-[1200px] mx-auto px-6 lg:px-12 flex flex-col items-center">
-        <div className="text-center mb-10">
+    <section id="for-customers" className="w-full scroll-mt-16 border-t border-slate-200/60 bg-[#fafafa] py-16 sm:scroll-mt-20 sm:py-24">
+      <div className="mx-auto flex w-full max-w-[1200px] flex-col items-center px-4 sm:px-6 lg:px-12">
+        <div className="mb-8 text-center sm:mb-10">
           <p className="text-[11px] font-bold text-slate-500 tracking-widest uppercase mb-4">For your customers</p>
           <h2 className="font-serif text-3xl sm:text-[40px] text-slate-900 leading-tight">
             A better experience for the people <br className="hidden sm:block" /> who choose your business
           </h2>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-2 mb-16 sm:mb-20">
+        <div className="mb-10 grid w-full grid-cols-4 gap-1 sm:mb-20 sm:flex sm:w-auto sm:flex-wrap sm:justify-center sm:gap-2">
           {moments.map((moment, idx) => (
             <button
               key={moment.name}
               type="button"
               onClick={() => setActiveIndex(idx)}
-              className={`px-5 py-2.5 rounded-full text-sm font-medium transition-colors ${
+              className={`min-h-11 rounded-full px-2 py-2.5 text-xs font-medium transition-colors sm:px-5 sm:text-sm ${
                 activeIndex === idx ? "bg-[#3CA6A6] text-[#082B2B]" : "bg-slate-100 text-slate-600 hover:bg-[#74EFC3]/25"
               }`}
             >
@@ -67,9 +67,9 @@ export default function TabbedTestimonial() {
           ))}
         </div>
 
-        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div className="grid w-full grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-24">
           <div className="flex flex-col">
-            <h3 className="font-serif text-2xl sm:text-3xl lg:text-[34px] leading-[1.3] text-slate-900 mb-10">
+            <h3 className="mb-6 font-serif text-2xl leading-[1.3] text-slate-900 sm:mb-10 sm:text-3xl lg:text-[34px]">
               {active.quote}
             </h3>
             <div>
@@ -77,7 +77,7 @@ export default function TabbedTestimonial() {
               <p className="text-slate-500 text-sm leading-6 max-w-lg">{active.response}</p>
             </div>
 
-            <div className="flex items-center gap-4 mt-12">
+            <div className="mt-8 flex items-center gap-4 sm:mt-12">
               <div className="flex gap-2">
                 {moments.map((moment, idx) => (
                   <div key={moment.name} className={`w-8 h-0.5 ${idx === activeIndex ? "bg-[#3CA6A6]" : "bg-slate-200"}`} />
@@ -87,10 +87,10 @@ export default function TabbedTestimonial() {
             </div>
           </div>
 
-          <div className="bg-[#74EFC3]/15 border border-[#3CA6A6]/15 rounded-xl p-10 sm:p-12 lg:p-20 flex flex-col justify-center items-center text-center aspect-[4/3] w-full max-w-[500px] ml-auto">
+          <div className="ml-auto flex aspect-[4/3] w-full max-w-[500px] flex-col items-center justify-center rounded-xl border border-[#3CA6A6]/15 bg-[#74EFC3]/15 p-8 text-center sm:p-12 lg:p-20">
             <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-5">{active.name}</p>
-            <h4 className="font-serif text-3xl sm:text-4xl text-slate-900 mb-6">{active.cardTitle}</h4>
-            <a href="#impact" className="flex items-center text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">
+            <h4 className="mb-5 font-serif text-[28px] text-slate-900 sm:mb-6 sm:text-4xl">{active.cardTitle}</h4>
+            <a href="#impact" className="flex min-h-11 items-center justify-center text-xs font-medium text-slate-600 transition-colors hover:text-slate-900 sm:text-sm">
               {active.cardSubtitle} <ArrowRight className="ml-2 w-4 h-4" />
             </a>
           </div>

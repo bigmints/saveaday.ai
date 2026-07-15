@@ -27,14 +27,14 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const headerBg = isScrolled ? "bg-black/90 backdrop-blur-md" : "bg-transparent";
+  const headerBg = isScrolled ? "bg-black/95 backdrop-blur-md" : "bg-transparent";
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${headerBg}`}>
-      <div className="mx-auto flex w-full max-w-[1400px] items-center justify-between px-6 lg:px-12 h-20">
+      <div className="mx-auto flex h-16 w-full max-w-[1400px] items-center justify-between px-4 sm:h-20 sm:px-6 lg:px-12">
         <div className="flex items-center gap-10">
-          <Link href="/" className="flex items-center gap-3 font-bold text-sm tracking-widest text-white transition-colors uppercase" aria-label="SaveADay home">
-            <Image src="/logo.svg" alt="" width={36} height={36} className="h-9 w-9 rounded-xl" priority />
+          <Link href="/" className="flex min-h-11 items-center gap-2.5 font-bold text-[13px] tracking-widest text-white transition-colors uppercase sm:gap-3 sm:text-sm" aria-label="SaveADay home">
+            <Image src="/logo.svg" alt="" width={36} height={36} className="h-8 w-8 rounded-lg sm:h-9 sm:w-9 sm:rounded-xl" priority />
             <span>SAVEADAY</span>
           </Link>
 
@@ -69,35 +69,36 @@ export default function Header() {
 
         <button
           type="button"
-          className="lg:hidden text-white"
+          className="-mr-2 inline-flex h-11 w-11 items-center justify-center text-white lg:hidden"
           onClick={() => setIsMobileOpen(!isMobileOpen)}
           aria-label={isMobileOpen ? "Close navigation" : "Open navigation"}
           aria-expanded={isMobileOpen}
+          aria-controls="mobile-navigation"
         >
           {isMobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
 
       {isMobileOpen && (
-        <nav aria-label="Mobile navigation" className="absolute top-full left-0 w-full bg-black border-t border-white/10 px-6 py-6 flex flex-col gap-6 lg:hidden">
+        <nav id="mobile-navigation" aria-label="Mobile navigation" className="absolute left-0 top-full flex max-h-[calc(100svh-4rem)] w-full flex-col overflow-y-auto border-t border-white/10 bg-black/95 px-4 py-4 backdrop-blur-md lg:hidden">
           {navItems.map((item) => (
             <Link
               key={item.label}
               href={item.href}
-              className="text-lg text-white flex justify-between items-center"
+              className="flex min-h-12 items-center justify-between border-b border-white/10 text-base text-white"
               onClick={() => setIsMobileOpen(false)}
             >
               {item.label}
               {item.hasDropdown && <ChevronDown className="w-5 h-5 text-white/50" />}
             </Link>
           ))}
-          <div className="h-px bg-white/10 my-2" />
-          <div className="flex flex-col gap-4">
-            <Link href="mailto:hello@saveaday.ai" className="text-lg text-white">Contact</Link>
-            <Link href={AUTH_URL} className="text-lg text-white">Log in</Link>
+          <div className="flex flex-col pt-3">
+            <Link href="mailto:hello@saveaday.ai" className="flex min-h-12 items-center text-base text-white" onClick={() => setIsMobileOpen(false)}>Contact</Link>
+            <Link href={AUTH_URL} className="flex min-h-12 items-center text-base text-white" onClick={() => setIsMobileOpen(false)}>Log in</Link>
             <Link
               href={`${AUTH_URL}/signup`}
-              className="w-full text-center px-5 py-3 text-lg font-medium bg-[#3CA6A6] text-[#082B2B]"
+              className="mt-3 inline-flex min-h-12 w-full items-center justify-center px-5 py-3 text-base font-medium bg-[#3CA6A6] text-[#082B2B]"
+              onClick={() => setIsMobileOpen(false)}
             >
               Sign up
             </Link>

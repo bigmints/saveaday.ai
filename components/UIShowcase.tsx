@@ -35,18 +35,18 @@ export default function UIShowcase() {
   };
 
   return (
-    <section id="why-saveaday" className="w-full bg-white py-24 flex justify-center scroll-mt-20">
-      <div className="w-full max-w-[1200px] px-6 lg:px-12">
-        <div className="mb-16">
-          <h2 className="font-serif text-3xl sm:text-[40px] text-slate-900 leading-[1.3] max-w-4xl tracking-tight">
+    <section id="why-saveaday" className="flex w-full scroll-mt-16 justify-center bg-white py-16 sm:scroll-mt-20 sm:py-24">
+      <div className="w-full max-w-[1200px] px-4 sm:px-6 lg:px-12">
+        <div className="mb-10 sm:mb-16">
+          <h2 className="max-w-4xl font-serif text-[30px] leading-[1.25] tracking-tight text-slate-900 sm:text-[40px] sm:leading-[1.3]">
             The work that grows your business should not get lost in the work of running it.{" "}
             <span className="text-slate-500">SaveADay keeps customer conversations and next steps moving, so your team can focus on serving people well.</span>
           </h2>
         </div>
 
-        <div className="relative w-full min-h-[620px] sm:min-h-0 sm:aspect-[16/9] rounded-xl overflow-hidden bg-[#3CA6A6] p-5 sm:p-12 flex flex-col justify-center items-center shadow-inner">
-          <div className="w-full max-w-3xl bg-white rounded-lg shadow-2xl overflow-hidden flex flex-col min-h-[560px] sm:h-full sm:max-h-[600px]">
-            <div className="h-14 border-b border-slate-100 bg-white flex items-center px-5 sm:px-6 shrink-0 z-10">
+        <div className="relative flex min-h-[530px] w-full flex-col items-center justify-center overflow-hidden rounded-xl bg-[#3CA6A6] p-3 shadow-inner sm:aspect-[16/9] sm:min-h-0 sm:p-12">
+          <div className="flex min-h-[500px] w-full max-w-3xl flex-col overflow-hidden rounded-lg bg-white shadow-2xl sm:h-full sm:max-h-[600px]">
+            <div className="z-10 flex h-14 shrink-0 items-center border-b border-slate-100 bg-white px-4 sm:px-6">
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 rounded-full bg-red-400" />
                 <div className="w-3 h-3 rounded-full bg-amber-400" />
@@ -55,7 +55,7 @@ export default function UIShowcase() {
               <span className="ml-auto text-[10px] font-bold uppercase tracking-widest text-slate-400">Example business day</span>
             </div>
 
-            <div className="flex-1 overflow-y-auto p-5 sm:p-8 flex flex-col gap-5 bg-slate-50/50">
+            <div className="flex flex-1 flex-col gap-4 overflow-y-auto bg-slate-50/50 p-4 sm:gap-5 sm:p-8">
               <div className="w-full bg-white border border-slate-200 rounded-lg shadow-sm p-2 flex flex-col sm:flex-row sm:items-center gap-2">
                 <div className="w-full py-3 px-3 sm:px-4 text-sm text-slate-900 font-medium">
                   What needs my attention today?
@@ -64,7 +64,7 @@ export default function UIShowcase() {
                   type="button"
                   onClick={showDay}
                   disabled={step !== 0}
-                  className={`shrink-0 px-6 py-3 rounded-md text-sm font-medium transition-all ${
+                  className={`min-h-12 shrink-0 rounded-md px-6 py-3 text-sm font-medium transition-all ${
                     step === 0
                       ? "bg-[#3CA6A6] text-[#082B2B] hover:bg-[#74EFC3] cursor-pointer shadow-sm"
                       : "bg-slate-200 text-slate-400 cursor-not-allowed"

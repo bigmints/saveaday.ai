@@ -21,13 +21,13 @@ const outcomes = [
 function OutcomeVisual({ index }: { index: number }) {
   if (index === 0) {
     return (
-      <div className="relative z-10 w-full max-w-[280px] space-y-2">
+      <div className="relative z-10 w-[calc(100%-12px)] max-w-[280px] space-y-2">
         {[
           ["New enquiry", "Just now"],
           ["Reply sent", "12 min"],
           ["Ready to book", "Today"],
         ].map(([label, time], row) => (
-          <div key={label} className="flex items-center gap-3 rounded-lg border border-slate-200 bg-white p-3 shadow-sm" style={{ marginLeft: `${row * 10}px` }}>
+          <div key={label} className="flex items-center gap-3 rounded-lg border border-slate-200 bg-white p-3 shadow-sm" style={{ marginLeft: `${row * 6}px` }}>
             <span className={`h-2 w-2 rounded-full ${row === 0 ? "bg-[#74EFC3]" : "bg-slate-300"}`} />
             <span className="text-[11px] font-medium text-slate-700">{label}</span>
             <span className="ml-auto text-[9px] text-slate-400">{time}</span>
@@ -77,30 +77,30 @@ function OutcomeVisual({ index }: { index: number }) {
 
 export default function PillarsSection() {
   return (
-    <section id="for-business" className="w-full bg-[#fafafa] py-24 md:py-32 scroll-mt-20">
-      <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12">
-        <div className="mb-12 max-w-4xl">
+    <section id="for-business" className="w-full scroll-mt-16 bg-[#fafafa] py-16 sm:scroll-mt-20 sm:py-24 md:py-32">
+      <div className="mx-auto w-full max-w-[1400px] px-4 sm:px-6 lg:px-12">
+        <div className="mb-10 max-w-4xl sm:mb-12">
           <p className="text-[11px] font-bold text-slate-500 tracking-widest uppercase mb-4">For your business</p>
-          <h2 className="font-serif text-4xl sm:text-5xl text-slate-900 leading-tight">
+          <h2 className="font-serif text-[34px] leading-tight text-slate-900 sm:text-5xl">
             Keep more opportunities. Create less work.
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-6">
           {outcomes.map(({ title, description, icon: Icon }, idx) => (
             <article key={title} className="flex flex-col group">
-              <div className="w-full aspect-[4/3] bg-[#3CA6A6]/10 rounded-xl mb-6 p-6 flex items-center justify-center overflow-hidden relative border border-[#3CA6A6]/20">
+              <div className="relative mb-5 flex aspect-[4/3] w-full items-center justify-center overflow-hidden rounded-xl border border-[#3CA6A6]/20 bg-[#3CA6A6]/10 p-4 sm:mb-6 sm:p-6">
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-200/40 to-transparent" />
                 <OutcomeVisual index={idx} />
               </div>
 
               <div>
-                <h3 className="font-sans text-[22px] font-medium text-slate-900 mb-2 flex items-start group-hover:text-slate-600 transition-colors">
+                <h3 className="mb-2 flex items-start font-sans text-xl font-medium text-slate-900 transition-colors group-hover:text-slate-600 sm:text-[22px]">
                   <Icon className="mr-3 mt-1 w-5 h-5 shrink-0 text-[#3CA6A6]" />
                   {title}
                   <ArrowUpRight className="ml-2 mt-1 w-5 h-5 shrink-0 text-[#3CA6A6]/60" />
                 </h3>
-                <p className="text-slate-600 text-sm leading-relaxed max-w-[92%]">{description}</p>
+                <p className="text-sm leading-relaxed text-slate-600 sm:max-w-[92%]">{description}</p>
               </div>
             </article>
           ))}
