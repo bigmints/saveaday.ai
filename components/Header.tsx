@@ -1,145 +1,108 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import Image from "next/image";
-import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { ChevronDown, Menu, X } from "lucide-react";
 
 const AUTH_URL = process.env.NODE_ENV === "development"
   ? "http://localhost:3010"
-  : "https://auth.saveaday.ai";
-
-const APP_URL = process.env.NODE_ENV === "development"
-  ? "http://localhost:3014"
   : "https://app.saveaday.ai";
 
 const navItems = [
-  { label: "Apps", href: "#apps" },
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Pricing", href: "/pricing" },
-  { label: "UBOT", href: "/ubot" },
+  { label: "Why SaveADay", href: "#why-saveaday", hasDropdown: false },
+  { label: "For your business", href: "#for-business", hasDropdown: false },
+  { label: "For customers", href: "#for-customers", hasDropdown: false },
+  { label: "Private AI", href: "#private-ai", hasDropdown: false },
 ];
 
 export default function Header() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   useEffect(() => {
-    const hasSession = document.cookie.split(';').some(c => c.trim().startsWith('session='));
-    setIsLoggedIn(hasSession);
-  }, []);
-
-  useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", handleScroll);
+    setIsScrolled(window.scrollY > 10 || Boolean(window.location.hash));
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const headerBg = isScrolled ? "bg-black/90 backdrop-blur-md" : "bg-transparent";
+
   return (
-    <header
-      className={`sticky top-0 z-50 border-b transition-all duration-300 ${
-        isScrolled
-          ? "border-border/60 bg-background/90 backdrop-blur-xl shadow-sm"
-          : "border-transparent bg-background/60 backdrop-blur-md"
-      }`}
-    >
-      <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4">
-        <Link href="/" className="flex items-center gap-3 group">
-          <Image
-            src="/logo-symbol.svg"
-            alt="SaveADay"
-            width={32}
-            height={32}
-            className="h-8 w-8 transition-transform group-hover:scale-110"
-          />
-          <span className="text-lg font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text">
-            SaveADay
-          </span>
-        </Link>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${headerBg}`}>
+      <div className="mx-auto flex w-full max-w-[1400px] items-center justify-between px-6 lg:px-12 h-20">
+        <div className="flex items-center gap-10">
+          <Link href="/" className="flex items-center gap-3 font-bold text-sm tracking-widest text-white transition-colors uppercase" aria-label="SaveADay home">
+            <Image src="/logo.svg" alt="" width={36} height={36} className="h-9 w-9 rounded-xl" priority />
+            <span>SAVEADAY</span>
+          </Link>
 
-        {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-1">
-          {navItems.map((item) => (
-            <Button key={item.label} variant="ghost" size="sm" className="text-sm font-medium" asChild>
-              {item.href.startsWith("#") ? (
-                <a href={item.href}>{item.label}</a>
-              ) : (
-                <Link href={item.href}>{item.label}</Link>
-              )}
-            </Button>
-          ))}
-
-          <div className="ml-3 h-5 w-px bg-border/60" />
-
-          <div className="ml-3 flex items-center gap-2">
-            {isLoggedIn ? (
-              <Button
-                size="sm"
-                className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-lg shadow-blue-500/25"
-                asChild
+          <nav className="hidden lg:flex items-center gap-6" aria-label="Primary navigation">
+            {navItems.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                className="flex items-center gap-1.5 text-[13px] text-white/90 hover:text-[#74EFC3] transition-colors"
               >
-                <a href={`${APP_URL}/dashboard`}>Go to App</a>
-              </Button>
-            ) : (
-              <>
-                <Button variant="ghost" size="sm" className="text-sm" asChild>
-                  <a href={`${AUTH_URL}/login`}>Log in</a>
-                </Button>
-                <Button
-                  size="sm"
-                  className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-lg shadow-blue-500/25"
-                  asChild
-                >
-                  <a href={`${AUTH_URL}/register`}>Start Free</a>
-                </Button>
-              </>
-            )}
-          </div>
-        </nav>
+                {item.label}
+                {item.hasDropdown && <ChevronDown className="w-3.5 h-3.5 opacity-60" />}
+              </Link>
+            ))}
+          </nav>
+        </div>
 
-        {/* Mobile menu button */}
-        <Button
-          variant="ghost"
-          size="sm"
-          className="md:hidden"
+        <div className="hidden lg:flex items-center gap-6">
+          <Link href="mailto:hello@saveaday.ai" className="text-[13px] text-white/90 hover:text-[#74EFC3] transition-colors">
+            Contact
+          </Link>
+          <Link href={`${AUTH_URL}/login`} className="text-[13px] text-white/90 hover:text-[#74EFC3] transition-colors">
+            Log in
+          </Link>
+          <Link
+            href={`${AUTH_URL}/signup`}
+            className="px-4 py-2 text-[13px] font-medium bg-[#3CA6A6] text-[#082B2B] hover:bg-[#74EFC3] transition-colors"
+          >
+            Sign up
+          </Link>
+        </div>
+
+        <button
+          type="button"
+          className="lg:hidden text-white"
           onClick={() => setIsMobileOpen(!isMobileOpen)}
+          aria-label={isMobileOpen ? "Close navigation" : "Open navigation"}
+          aria-expanded={isMobileOpen}
         >
-          {isMobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </Button>
+          {isMobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
       </div>
 
-      {/* Mobile nav */}
       {isMobileOpen && (
-        <div className="md:hidden border-t border-border/50 bg-background/95 backdrop-blur-xl px-6 py-4 space-y-2">
+        <nav aria-label="Mobile navigation" className="absolute top-full left-0 w-full bg-black border-t border-white/10 px-6 py-6 flex flex-col gap-6 lg:hidden">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.label}
-              href={item.href.startsWith("#") ? item.href : item.href}
-              className="block py-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
+              href={item.href}
+              className="text-lg text-white flex justify-between items-center"
               onClick={() => setIsMobileOpen(false)}
             >
               {item.label}
-            </a>
+              {item.hasDropdown && <ChevronDown className="w-5 h-5 text-white/50" />}
+            </Link>
           ))}
-          <div className="pt-3 border-t border-border/50 space-y-2">
-            {isLoggedIn ? (
-              <Button size="sm" className="w-full bg-gradient-to-r from-blue-600 to-indigo-600" asChild>
-                <a href={`${APP_URL}/dashboard`}>Go to App</a>
-              </Button>
-            ) : (
-              <>
-                <Button variant="outline" size="sm" className="w-full" asChild>
-                  <a href={`${AUTH_URL}/login`}>Log in</a>
-                </Button>
-                <Button size="sm" className="w-full bg-gradient-to-r from-blue-600 to-indigo-600" asChild>
-                  <a href={`${AUTH_URL}/register`}>Start Free</a>
-                </Button>
-              </>
-            )}
+          <div className="h-px bg-white/10 my-2" />
+          <div className="flex flex-col gap-4">
+            <Link href="mailto:hello@saveaday.ai" className="text-lg text-white">Contact</Link>
+            <Link href={`${AUTH_URL}/login`} className="text-lg text-white">Log in</Link>
+            <Link
+              href={`${AUTH_URL}/signup`}
+              className="w-full text-center px-5 py-3 text-lg font-medium bg-[#3CA6A6] text-[#082B2B]"
+            >
+              Sign up
+            </Link>
           </div>
-        </div>
+        </nav>
       )}
     </header>
   );

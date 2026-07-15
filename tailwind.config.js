@@ -14,13 +14,11 @@ module.exports = {
         accent: "#7ee787",
         "accent-emphasis": "#4cc3a7",
         brand: {
-          teal: "#1BC3AD",
-          blue: "#3a8bff",
+          primary: "#3CA6A6",
+          accent: "#74EFC3",
+          teal: "#3CA6A6",
+          mint: "#74EFC3",
         },
-      },
-      fontFamily: {
-        sans: ["var(--font-sans)", "Mona Sans", "ui-sans-serif", "system-ui"],
-        display: ["var(--font-sans)", "Mona Sans", "ui-sans-serif", "system-ui"],
       },
       backgroundImage: {
         "beam-grid":
