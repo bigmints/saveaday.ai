@@ -45,7 +45,7 @@ export default function CTASection() {
       </section>
 
       <section className="relative w-full min-h-[600px] flex items-center justify-center overflow-hidden border-t border-white/5">
-        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40" style={{ backgroundImage: "url('/images/hero_bg.png')" }} />
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40" style={{ backgroundImage: "url('/images/hero_bg.jpg')" }} />
         <div className="absolute inset-0 bg-gradient-to-t from-[#111] via-black/30 to-[#111]" />
 
         <div className="relative z-10 w-full max-w-4xl mx-auto px-6 py-24 text-center">

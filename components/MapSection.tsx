@@ -29,7 +29,7 @@ export default function MapSection() {
           <div className="relative w-full min-h-[560px] md:min-h-0 md:aspect-[21/9] rounded-xl overflow-hidden bg-slate-900 shadow-lg">
             <div
               className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-55"
-              style={{ backgroundImage: "url('/images/hero_bg.png')" }}
+              style={{ backgroundImage: "url('/images/hero_bg.jpg')" }}
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/30" />
 
