@@ -1,115 +1,99 @@
-import { FileText, Link2, ShieldCheck } from "lucide-react";
 import type { NextPage } from "next";
 import Head from "next/head";
+import Link from "next/link";
+import { ArrowRight, BookOpen, Bot, Building2, CalendarDays, UsersRound } from "lucide-react";
 
-import Footer from "@/components/Footer";
-import Section from "@/components/Section";
+import DocsShell from "@/components/docs/DocsShell";
+import { docHref, docsNavigation, getDocPage } from "@/lib/docs-content";
 
-const DEFAULT_DOCS_URL = "https://bigmints-com.github.io/sad-apps/";
-
-const featureCards = [
-  {
-    title: "Live handbook",
-    icon: FileText,
-    body: "Markdown files inside the private monorepo render instantly on GitHub Pages using the just-the-docs theme.",
-  },
-  {
-    title: "Embed-friendly",
-    icon: Link2,
-    body: "This page simply points to the hosted docs URL, so content updates only require git pushes—no marketing redeploys.",
-  },
-  {
-    title: "Secure by default",
-    icon: ShieldCheck,
-    body: "When the docs repo stays private you will need a GitHub session to view them. Flip the URL env var to expose a public mirror.",
-  },
+const startingPoints = [
+  { slug: "getting-started", title: "Set up SaveADay", description: "Build the foundations of your workspace and publish the first customer experience.", icon: BookOpen },
+  { slug: "chat", title: "Work with Chat", description: "Ask for summaries and complete work across your business in plain language.", icon: Bot },
+  { slug: "bookings", title: "Take bookings", description: "Connect services, staff, assets, and availability to manage appointments.", icon: CalendarDays },
 ];
 
-const DocsPage: NextPage = () => {
-  const docsUrl = process.env.NEXT_PUBLIC_DOCS_URL ?? DEFAULT_DOCS_URL;
-
+const DocsHome: NextPage = () => {
   return (
     <>
       <Head>
-        <title>SaveADay.ai — Documentation</title>
+        <title>SaveADay Documentation</title>
+        <meta name="description" content="Learn how to set up SaveADay, operate your workspace, and publish customer experiences." />
+        <link rel="canonical" href="https://www.saveaday.ai/docs/" />
       </Head>
-      <main className="space-y-24 bg-[#050d18] pb-24 pt-16 text-white">
-        <Section
-          id="docs"
-          eyebrow="Docs"
-          title="Documentation for every SaveADay app"
-          description="These docs are authored in Markdown inside the monorepo and published via GitHub Pages so engineering and marketing stay in sync."
-          align="left"
-        >
-          <div className="flex flex-col gap-6 rounded-3xl border border-white/10 bg-white/5 p-10 shadow-[0_35px_120px_-70px_rgba(58,139,255,0.45)] lg:flex-row">
-            <div className="space-y-6">
-              <p className="text-lg text-gray-200">
-                Need the full handbook? Open the live site in a new tab or read it inline below. The content covers every monorepo app
-                except this marketing site.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <a
-                  className="inline-flex items-center justify-center rounded-full bg-brand-blue px-6 py-3 font-semibold text-white shadow-lg shadow-brand-blue/40"
-                  href={docsUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  View docs
-                </a>
-                <span className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-gray-200">
-                  <span className="h-2 w-2 rounded-full bg-emerald-400" />
-                  Auto-published from /docs
-                </span>
-              </div>
-              <p className="text-sm text-gray-400">
-                Configure a different target via <code className="rounded bg-black/30 px-2 py-1">NEXT_PUBLIC_DOCS_URL</code> in the
-                saveaday.ai deployment pipeline.
-              </p>
+      <DocsShell>
+        <div className="mx-auto max-w-4xl">
+          <section className="border-b border-[#e1eae7] pb-12">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#168c7f]">SaveADay documentation</p>
+            <h1 className="mt-4 max-w-3xl font-serif text-5xl font-medium leading-[1.05] tracking-[-0.035em] text-[#102d28] sm:text-6xl">Run your business with less chasing.</h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-[#5c706c]">Practical guides for setting up your workspace, handling daily work, and giving customers clear ways to act.</p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Link href={docHref("getting-started")} className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-[#147d72] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#0f6c63]">
+                Start here <ArrowRight className="h-4 w-4" />
+              </Link>
+              <a href="https://app.saveaday.ai" className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-[#cfdeda] bg-white px-5 py-2.5 text-sm font-semibold text-[#245049] transition hover:border-[#9ecfc5]">
+                Open SaveADay
+              </a>
             </div>
-            <ul className="space-y-4 lg:w-80">
-              {featureCards.map(({ title, icon: Icon, body }) => (
-                <li key={title} className="flex gap-4 rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-blue/15 text-brand-blue">
-                    <Icon className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <p className="font-semibold">{title}</p>
-                    <p className="text-sm text-gray-300">{body}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </Section>
+          </section>
 
-        <Section
-          id="preview"
-          eyebrow="Live preview"
-          title="Inline view"
-          description="The iframe below loads whatever URL is configured for the handbook so you can browse without leaving saveaday.ai."
-        >
-          <div className="space-y-4">
-            <div className="relative min-h-[24rem] overflow-hidden rounded-3xl border border-white/10 bg-[#0d1625] shadow-[0_40px_120px_-60px_rgba(8,21,45,0.9)]">
-              <iframe
-                src={docsUrl}
-                title="SaveADay documentation"
-                className="h-[70vh] w-full"
-                loading="lazy"
-              />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0d1625] to-transparent p-4 text-right text-xs text-gray-400">
-                Having trouble? Open the docs in a new tab so GitHub authentication can complete.
-              </div>
+          <section className="py-12">
+            <h2 className="font-serif text-3xl font-medium tracking-[-0.02em] text-[#143a34]">Popular starting points</h2>
+            <div className="mt-6 grid gap-4 md:grid-cols-3">
+              {startingPoints.map(({ slug, title, description, icon: Icon }) => (
+                <Link key={slug} href={docHref(slug)} className="group rounded-2xl border border-[#dfe9e6] bg-white p-5 transition hover:-translate-y-0.5 hover:border-[#9ecfc5] hover:shadow-[0_14px_35px_-24px_rgba(20,85,74,0.45)]">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#e5f5f0] text-[#147d72]"><Icon className="h-5 w-5" /></span>
+                  <h3 className="mt-5 font-semibold text-[#173d38] group-hover:text-[#147d72]">{title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-[#647672]">{description}</p>
+                  <span className="mt-5 flex items-center gap-1 text-sm font-medium text-[#147d72]">Read guide <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" /></span>
+                </Link>
+              ))}
             </div>
-            <p className="text-sm text-gray-400">
-              If the iframe fails to load (private repo, CSP, etc.) the primary &quot;View docs&quot; button above will always take you to the
-              canonical site.
-            </p>
-          </div>
-        </Section>
-      </main>
-      <Footer />
+          </section>
+
+          <section className="border-t border-[#e1eae7] py-12">
+            <div className="flex items-end justify-between gap-4">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#168c7f]">All guides</p>
+                <h2 className="mt-2 font-serif text-3xl font-medium tracking-[-0.02em] text-[#143a34]">Browse by what you need to do</h2>
+              </div>
+              <div className="hidden items-center gap-2 text-[#88a09b] sm:flex"><Building2 className="h-5 w-5" /><UsersRound className="h-5 w-5" /></div>
+            </div>
+            <div className="mt-8 grid gap-x-10 gap-y-10 md:grid-cols-2">
+              {docsNavigation.map((group) => (
+                <div key={group.title}>
+                  <h3 className="border-b border-[#dfe9e6] pb-3 text-sm font-semibold text-[#173d38]">{group.title}</h3>
+                  <ul className="mt-2">
+                    {group.pages.map((navPage) => {
+                      const page = getDocPage(navPage.slug);
+                      return (
+                        <li key={navPage.slug}>
+                          <Link href={docHref(navPage.slug)} className="group flex items-start justify-between gap-4 rounded-lg px-2 py-3 transition hover:bg-[#f0f6f4]">
+                            <span>
+                              <span className="block text-sm font-medium text-[#315650] group-hover:text-[#147d72]">{navPage.title}</span>
+                              {page ? <span className="mt-1 block text-xs leading-5 text-[#78908b]">{page.description}</span> : null}
+                            </span>
+                            <ArrowRight className="mt-0.5 h-4 w-4 shrink-0 text-[#a2b3af] group-hover:text-[#147d72]" />
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="mb-6 rounded-2xl bg-[#0c2d29] px-6 py-8 text-white sm:flex sm:items-center sm:justify-between sm:px-8">
+            <div>
+              <h2 className="font-serif text-2xl font-medium">Can’t find what you need?</h2>
+              <p className="mt-2 text-sm text-white/65">Send us the task you are trying to complete.</p>
+            </div>
+            <a href="mailto:hello@saveaday.ai" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#74efc3] sm:mt-0">Contact support <ArrowRight className="h-4 w-4" /></a>
+          </section>
+        </div>
+      </DocsShell>
     </>
   );
 };
 
-export default DocsPage;
+export default DocsHome;

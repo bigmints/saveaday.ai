@@ -36,7 +36,7 @@ export default function Footer() {
     {
       title: "Resources",
       links: [
-        ["Documentation", "/docs"],
+        ["Documentation", "/docs/"],
         ["Pricing", "/pricing"],
         ["Privacy", "/privacy"],
         ["Contact", "mailto:hello@saveaday.ai"],
