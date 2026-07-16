@@ -34,7 +34,7 @@ export default function OnPremSection() {
                 <span className="text-[10px] font-bold tracking-widest text-slate-400">0{index + 1}</span>
                 <div>
                   <h3 className="text-sm font-medium text-slate-900">{benefit.title}</h3>
-                  <p className="mt-2 text-xs leading-5 text-slate-500">{benefit.description}</p>
+                  <p className="mt-2 text-sm leading-6 text-slate-500">{benefit.description}</p>
                 </div>
               </div>
             ))}

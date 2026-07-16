@@ -90,7 +90,7 @@ export default function MapSection() {
                   <div className="mt-auto">
                     <p className="text-[9px] font-bold text-slate-400 tracking-widest uppercase mb-3">{label}</p>
                     <h3 className="mb-3 font-serif text-[26px] text-slate-900 sm:text-[30px]">{title}</h3>
-                    <p className="text-xs leading-5 text-slate-600">{description}</p>
+                    <p className="text-sm leading-6 text-slate-600">{description}</p>
                   </div>
                 </div>
               </article>

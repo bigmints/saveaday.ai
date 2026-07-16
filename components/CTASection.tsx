@@ -38,7 +38,7 @@ export default function CTASection() {
             <article key={item.number} className="border-t border-white/15 pt-5 sm:pt-6">
               <p className="text-[10px] text-[#3CA6A6] font-bold tracking-widest">{item.number}</p>
               <h3 className="mt-5 max-w-sm font-serif text-[22px] leading-snug text-white sm:mt-8 sm:text-2xl">{item.title}</h3>
-              <p className="mt-4 text-xs leading-6 text-[#888] max-w-sm">{item.description}</p>
+              <p className="mt-4 max-w-sm text-sm leading-6 text-[#aaa]">{item.description}</p>
             </article>
           ))}
         </div>

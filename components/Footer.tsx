@@ -54,7 +54,7 @@ export default function Footer() {
               <span>SAVEADAY</span>
             </Link>
 
-            <div className="max-w-xs text-[11px] text-[#888]">
+            <div className="max-w-xs text-xs text-[#999]">
               <p className="leading-6">Help more customers move forward while giving your team back the time usually lost to admin and follow-up.</p>
               <a href="mailto:hello@saveaday.ai" className="mt-8 inline-flex items-center gap-2 text-[#74EFC3]/80 hover:text-[#74EFC3] transition-colors">
                 <Mail className="w-4 h-4" /> hello@saveaday.ai
@@ -64,13 +64,13 @@ export default function Footer() {
 
           {groups.map((group) => (
             <div key={group.title}>
-              <h3 className="mb-3 text-[11px] font-medium text-white sm:mb-5">{group.title}</h3>
+              <h3 className="mb-3 text-xs font-medium text-white sm:mb-5">{group.title}</h3>
               <ul className="space-y-1 sm:space-y-3">
                 {group.links.map(([label, href]) => (
                   <li key={label}>
                     <Link
                       href={href}
-                      className="inline-flex min-h-8 items-center text-[11px] text-[#777] transition-colors hover:text-[#74EFC3]"
+                      className="inline-flex min-h-8 items-center text-xs text-[#888] transition-colors hover:text-[#74EFC3]"
                     >
                       {label}
                     </Link>
