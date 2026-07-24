@@ -82,7 +82,7 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-7 text-[10px] text-[#666] sm:flex-row sm:items-center sm:pt-8">
-          <p>© {currentYear} SaveADay. All rights reserved.</p>
+          <p>© {currentYear} Uvega FZE LLC. All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
             <a href="mailto:hello@saveaday.ai" className="hover:text-white transition-colors">hello@saveaday.ai</a>
