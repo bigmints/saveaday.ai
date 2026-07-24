@@ -10,10 +10,10 @@ const AUTH_URL = process.env.NODE_ENV === "development"
   : "https://app.saveaday.ai";
 
 const navItems = [
-  { label: "Why SaveADay", href: "#why-saveaday", hasDropdown: false },
-  { label: "For your business", href: "#for-business", hasDropdown: false },
-  { label: "For customers", href: "#for-customers", hasDropdown: false },
-  { label: "Private AI", href: "#private-ai", hasDropdown: false },
+  { label: "Why SaveADay", href: "/#why-saveaday", hasDropdown: false },
+  { label: "For your business", href: "/#for-business", hasDropdown: false },
+  { label: "For customers", href: "/#for-customers", hasDropdown: false },
+  { label: "Private AI", href: "/#private-ai", hasDropdown: false },
 ];
 
 export default function Header() {
@@ -53,7 +53,7 @@ export default function Header() {
         </div>
 
         <div className="hidden lg:flex items-center gap-6">
-          <Link href="mailto:hello@saveaday.ai" className="text-[13px] text-white/90 hover:text-[#74EFC3] transition-colors">
+          <Link href="/contact/" className="text-[13px] text-white/90 hover:text-[#74EFC3] transition-colors">
             Contact
           </Link>
           <Link href={AUTH_URL} className="text-[13px] text-white/90 hover:text-[#74EFC3] transition-colors">
@@ -93,7 +93,7 @@ export default function Header() {
             </Link>
           ))}
           <div className="flex flex-col pt-3">
-            <Link href="mailto:hello@saveaday.ai" className="flex min-h-12 items-center text-base text-white" onClick={() => setIsMobileOpen(false)}>Contact</Link>
+            <Link href="/contact/" className="flex min-h-12 items-center text-base text-white" onClick={() => setIsMobileOpen(false)}>Contact</Link>
             <Link href={AUTH_URL} className="flex min-h-12 items-center text-base text-white" onClick={() => setIsMobileOpen(false)}>Log in</Link>
             <Link
               href={`${AUTH_URL}/signup`}

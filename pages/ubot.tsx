@@ -1,6 +1,7 @@
 import React from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
+import Link from "next/link";
 import {
   Check,
   Minus,
@@ -407,7 +408,7 @@ const UbotPage: NextPage = () => {
                         </a>
                       </Button>
                       <Button size="lg" variant="outline" asChild>
-                        <a href="mailto:hello@saveaday.ai">Contact for Dedicated</a>
+                        <Link href="/contact/">Contact for Dedicated</Link>
                       </Button>
                     </div>
                   </div>

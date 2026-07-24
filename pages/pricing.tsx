@@ -1,5 +1,6 @@
 import React from "react";
 import type { NextPage } from "next";
+import Link from "next/link";
 import { Check, Minus, Sparkles, ArrowRight } from "lucide-react";
 
 import Header from "@/components/Header";
@@ -201,9 +202,11 @@ const PricingPage: NextPage = () => {
                   </ul>
                 </div>
                 <div className="flex flex-col gap-3">
-                  <Button size="lg" disabled className="whitespace-nowrap">
-                    Contact Sales
-                    <ArrowRight className="ml-2 h-4 w-4" />
+                  <Button size="lg" className="whitespace-nowrap" asChild>
+                    <Link href="/contact/">
+                      Contact Sales
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
                   </Button>
                   <p className="text-xs text-muted-foreground text-center">
                     Custom pricing based on your needs

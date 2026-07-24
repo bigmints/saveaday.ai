@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const APP_URL = process.env.NODE_ENV === "development"
   ? "http://localhost:3010"
@@ -63,12 +64,12 @@ export default function CTASection() {
             >
               Try for free <ArrowRight className="w-4 h-4" />
             </a>
-            <a
-              href="mailto:hello@saveaday.ai"
+            <Link
+              href="/contact/"
               className="inline-flex min-h-12 w-full items-center justify-center border border-[#74EFC3]/30 bg-[#74EFC3]/10 px-6 py-3 text-center text-sm font-medium text-white transition-colors hover:bg-[#74EFC3]/20 sm:w-auto"
             >
               Talk to us
-            </a>
+            </Link>
           </div>
         </div>
       </section>

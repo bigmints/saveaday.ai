@@ -39,7 +39,7 @@ export default function Footer() {
         ["Documentation", "/docs/"],
         ["Pricing", "/pricing"],
         ["Privacy", "/privacy"],
-        ["Contact", "mailto:hello@saveaday.ai"],
+        ["Contact", "/contact/"],
       ],
     },
   ];
