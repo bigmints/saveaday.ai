@@ -1,7 +1,5 @@
-import { useState, type FormEvent } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
-import Link from "next/link";
 import { ArrowRight, Building2, ExternalLink, Globe2, Mail, MessageSquareText } from "lucide-react";
 
 import Footer from "@/components/Footer";
@@ -9,38 +7,7 @@ import Header from "@/components/Header";
 
 const CONTACT_EMAIL = "hello@saveaday.ai";
 
-const fieldClassName =
-  "mt-2 min-h-12 w-full rounded-lg border border-[#d9e5e2] bg-white px-3.5 py-2.5 text-sm text-[#18332f] outline-none transition placeholder:text-[#91a29e] focus:border-[#3CA6A6] focus:ring-3 focus:ring-[#3CA6A6]/20";
-
 const ContactPage: NextPage = () => {
-  const [prepared, setPrepared] = useState(false);
-
-  const prepareEmail = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    const data = new FormData(event.currentTarget);
-    const name = String(data.get("name") ?? "").trim();
-    const email = String(data.get("email") ?? "").trim();
-    const company = String(data.get("company") ?? "").trim();
-    const topic = String(data.get("topic") ?? "General enquiry").trim();
-    const message = String(data.get("message") ?? "").trim();
-
-    const subject = `SaveADay enquiry: ${topic}`;
-    const body = [
-      `Name: ${name}`,
-      `Email: ${email}`,
-      company ? `Company: ${company}` : null,
-      `Topic: ${topic}`,
-      "",
-      message,
-    ]
-      .filter((line): line is string => line !== null)
-      .join("\n");
-
-    setPrepared(true);
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  };
-
   return (
     <div className="min-h-screen bg-[#f7faf9]">
       <Head>
@@ -134,78 +101,20 @@ const ContactPage: NextPage = () => {
               <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#168c7f]">Send an enquiry</p>
               <h2 className="mt-3 font-serif text-3xl leading-tight text-[#143a34]">Tell us what you need.</h2>
               <p className="mt-3 text-sm leading-6 text-[#647672]">
-                Complete the form and we will prepare an email with your details ready to send.
+                Complete the form and our team will continue the conversation by email.
               </p>
 
-              <form className="mt-8 space-y-5" onSubmit={prepareEmail}>
-                <div className="grid gap-5 sm:grid-cols-2">
-                  <label className="text-sm font-medium text-[#294d47]">
-                    Name
-                    <input className={fieldClassName} name="name" autoComplete="name" required />
-                  </label>
-                  <label className="text-sm font-medium text-[#294d47]">
-                    Work email
-                    <input className={fieldClassName} name="email" type="email" autoComplete="email" required />
-                  </label>
-                </div>
-
-                <div className="grid gap-5 sm:grid-cols-2">
-                  <label className="text-sm font-medium text-[#294d47]">
-                    Company <span className="font-normal text-[#82938f]">(optional)</span>
-                    <input className={fieldClassName} name="company" autoComplete="organization" />
-                  </label>
-                  <label className="text-sm font-medium text-[#294d47]">
-                    What can we help with?
-                    <select className={fieldClassName} name="topic" defaultValue="Product question">
-                      <option>Product question</option>
-                      <option>Sales and pricing</option>
-                      <option>Partnership</option>
-                      <option>Support</option>
-                      <option>Other</option>
-                    </select>
-                  </label>
-                </div>
-
-                <label className="block text-sm font-medium text-[#294d47]">
-                  Message
-                  <textarea
-                    className={`${fieldClassName} min-h-40 resize-y`}
-                    name="message"
-                    placeholder="Share the outcome you are looking for and any useful context."
-                    required
-                  />
-                </label>
-
-                {prepared ? (
-                  <div className="rounded-lg border border-[#bfe4d9] bg-[#eef8f5] p-4 text-sm leading-6 text-[#345a53]" role="status">
-                    Your email app should open with the message ready. If it does not, email us directly at{" "}
-                    <a className="font-semibold underline underline-offset-2" href={`mailto:${CONTACT_EMAIL}`}>
-                      {CONTACT_EMAIL}
-                    </a>
-                    .
-                  </div>
-                ) : null}
-
-                <div className="flex flex-col gap-4 border-t border-[#e5ecea] pt-5 sm:flex-row sm:items-center sm:justify-between">
-                  <p className="max-w-sm text-xs leading-5 text-[#78908b]">
-                    This opens your email app. Your information is not sent to a third-party form service.
-                  </p>
-                  <button
-                    type="submit"
-                    className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-[#3CA6A6] px-5 py-3 text-sm font-semibold text-[#082B2B] transition hover:bg-[#74EFC3] sm:w-auto"
-                  >
-                    Open email app <ArrowRight className="h-4 w-4" />
-                  </button>
-                </div>
-              </form>
-
-              <p className="mt-5 text-xs leading-5 text-[#78908b]">
-                By contacting us, you agree that we may use the information you provide to respond to your enquiry. Read our{" "}
-                <Link className="font-medium text-[#147d72] hover:underline" href="/privacy/">
-                  privacy information
-                </Link>
-                .
-              </p>
+              <div className="mt-8 overflow-hidden rounded-xl border border-[#dfe9e6] bg-white">
+                <iframe
+                  src="https://app.saveaday.ai/forms/cd098597-783c-42a8-9eaf-ac9547e3bf4b"
+                  title="Contact Us"
+                  width="100%"
+                  height="640"
+                  className="block w-full"
+                  style={{ border: 0 }}
+                  loading="lazy"
+                />
+              </div>
             </div>
           </div>
         </section>
