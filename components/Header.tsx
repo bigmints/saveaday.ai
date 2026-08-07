@@ -10,10 +10,10 @@ const AUTH_URL = process.env.NODE_ENV === "development"
   : "https://app.saveaday.ai";
 
 const navItems = [
-  { label: "Why SaveADay", href: "/#why-saveaday", hasDropdown: false },
+  { label: "How it works", href: "/#how-it-works", hasDropdown: false },
   { label: "For your business", href: "/#for-business", hasDropdown: false },
   { label: "For customers", href: "/#for-customers", hasDropdown: false },
-  { label: "Private AI", href: "/#private-ai", hasDropdown: false },
+  { label: "For enterprise", href: "/#private-ai", hasDropdown: false },
 ];
 
 export default function Header() {

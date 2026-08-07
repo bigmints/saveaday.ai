@@ -11,10 +11,10 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           name="description"
-          content="SaveADay helps every customer enquiry move forward while giving your team back time."
+          content="SaveADay keeps customer questions, follow-ups, bookings, and records together so your team knows what needs attention next."
         />
         <link rel="icon" href="/logo.svg" />
-        <title>SaveADay — More customers. Less chasing.</title>
+        <title>SaveADay — Turn more enquiries into customers</title>
       </Head>
       <div className="font-sans">
         <Component {...pageProps} />

@@ -8,12 +8,12 @@ const APP_URL = process.env.NODE_ENV === "development"
 const changes = [
   {
     number: "01",
-    title: "Fewer opportunities fade away",
+    title: "More enquiries move forward",
     description: "Give every enquiry a useful response and an obvious next step while interest is still high.",
   },
   {
     number: "02",
-    title: "Customers move with confidence",
+    title: "Customers get clear next steps",
     description: "Make it easier to understand the business, choose the right option, and act without unnecessary friction.",
   },
   {
@@ -52,10 +52,10 @@ export default function CTASection() {
         <div className="relative z-10 mx-auto w-full max-w-4xl px-4 py-16 text-center sm:px-6 sm:py-24">
           <p className="text-[10px] font-bold uppercase tracking-widest text-[#74EFC3] mb-6">A better day for both sides</p>
           <h2 className="mb-6 font-serif text-[36px] leading-[1.1] text-white sm:text-[56px]">
-            Make every customer moment easier.
+            Make every customer&apos;s next step easier.
           </h2>
           <p className="text-[15px] leading-7 text-white/80 mb-10 max-w-xl mx-auto">
-            Easier for customers to move forward. Easier for your team to know what comes next.
+            Give customers faster answers and give your team a clearer working day.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a

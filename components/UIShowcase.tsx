@@ -39,8 +39,8 @@ export default function UIShowcase() {
       <div className="w-full max-w-[1200px] px-4 sm:px-6 lg:px-12">
         <div className="mb-10 sm:mb-16">
           <h2 className="max-w-4xl font-serif text-[30px] leading-[1.25] tracking-tight text-slate-900 sm:text-[40px] sm:leading-[1.3]">
-            The work that grows your business should not get lost in the work of running it.{" "}
-            <span className="text-slate-500">SaveADay keeps customer conversations and next steps moving, so your team can focus on serving people well.</span>
+            Start every day knowing what matters.{" "}
+            <span className="text-slate-500">SaveADay brings new enquiries, upcoming bookings, customer requests, and unfinished follow-ups into one clear view.</span>
           </h2>
         </div>
 
@@ -77,8 +77,8 @@ export default function UIShowcase() {
               {step === 0 && (
                 <div className="flex-1 flex items-center justify-center text-center px-6">
                   <div className="max-w-sm">
-                    <p className="font-serif text-2xl text-slate-900">Start with what matters.</p>
-                    <p className="mt-3 text-sm leading-6 text-slate-500">See the customers waiting, the commitments ahead, and the one thing that needs a decision.</p>
+                    <p className="font-serif text-2xl text-slate-900">See your next steps clearly.</p>
+                    <p className="mt-3 text-sm leading-6 text-slate-500">See the customers waiting, the commitments ahead, and the work that needs a decision.</p>
                   </div>
                 </div>
               )}

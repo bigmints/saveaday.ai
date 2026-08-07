@@ -1,222 +1,141 @@
-import React from "react";
 import type { NextPage } from "next";
+import Head from "next/head";
 import Link from "next/link";
-import { Check, Minus, Sparkles, ArrowRight } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Section from "@/components/Section";
+import Header from "@/components/Header";
 
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-
-const tiers = [
-  { name: "Starter", price: "Coming Soon" },
-  { name: "Plus", price: "Coming Soon" },
-  { name: "Pro", price: "Coming Soon", popular: true },
-];
-
-const featureGroups = [
+const plans = [
   {
-    title: "Core Apps",
-    features: [
-      { name: "Contacts", starter: "✓", plus: "✓", pro: "✓" },
-      { name: "Leads", starter: "✓", plus: "✓", pro: "✓" },
-      { name: "Links", starter: "✓", plus: "✓", pro: "✓" },
-      { name: "Catalogues", starter: "✓", plus: "1", pro: "Unlimited" },
-      { name: "Surveys", starter: "✓", plus: "4", pro: "Unlimited" },
-      { name: "Tasks", starter: "✓", plus: "✓", pro: "✓" },
-      { name: "Feeds", starter: "x", plus: "10", pro: "100" },
-      { name: "Bookings", starter: "x", plus: "✓", pro: "Unlimited" },
-      { name: "Waitlists", starter: "x", plus: "✓", pro: "Unlimited" },
-      { name: "Referrals", starter: "x", plus: "✓", pro: "Unlimited" },
-      { name: "Rewards", starter: "x", plus: "x", pro: "Unlimited" },
+    name: "Starter",
+    price: "Free",
+    description: "For a small business putting customer work in one clear place.",
+    points: "100 monthly AI points",
+    outcomes: [
+      "Keep customer details and activity together",
+      "Publish your first catalogue, lead form, and booking flow",
+      "Start without a card or monthly fee",
     ],
+    action: "Start free",
+    href: "https://app.saveaday.ai/signup",
   },
   {
-    title: "Platform Features",
-    features: [
-      { name: "AI Support Agent", starter: "x", plus: "x", pro: "✓" },
-      { name: "Managed AI", starter: "x", plus: "50k tokens", pro: "100k tokens" },
-      { name: "Automations", starter: "x", plus: "10", pro: "Unlimited" },
-      { name: "AI Reports", starter: "x", plus: "5", pro: "Unlimited" },
-      { name: "Initial Set Up", starter: "✓", plus: "✓", pro: "✓" },
-      { name: "Team Management", starter: "2 members", plus: "10 members", pro: "Unlimited" },
+    name: "Plus",
+    price: "AED 249",
+    suffix: "/month",
+    description: "For a growing business handling more customers and day-to-day activity.",
+    points: "2,000 monthly AI points",
+    outcomes: [
+      "More room for customer enquiries and bookings",
+      "More capacity as your business gets busier",
+      "The same customer, booking, form, and catalogue tools",
     ],
+    action: "Talk to us",
+    href: "/contact/",
+    featured: true,
   },
   {
-    title: "Add-Ons",
-    features: [
-      { name: "Custom Website", starter: "Coming Soon", plus: "Coming Soon", pro: "Coming Soon" },
-      { name: "Custom Data connectors", starter: "Coming Soon", plus: "Coming Soon", pro: "Coming Soon" },
-      { name: "On-Premise", starter: "x", plus: "x", pro: "x" },
-      { name: "Service Management", starter: "Coming Soon", plus: "Coming Soon", pro: "Coming Soon" },
+    name: "Pro",
+    price: "AED 499",
+    suffix: "/month",
+    description: "For established teams that need the highest standard SaveADay capacity.",
+    points: "5,000 monthly AI points",
+    outcomes: [
+      "The highest capacity in the standard plan range",
+      "More room for a busy team and customer operation",
+      "The same customer, booking, form, and catalogue tools",
     ],
-  }
+    action: "Talk to us",
+    href: "/contact/",
+  },
 ];
 
 const PricingPage: NextPage = () => {
-  const renderCell = (val: string) => {
-    if (val === "✓") return <Check className="h-5 w-5 text-emerald-500 mx-auto" />;
-    if (val === "x") return <Minus className="h-5 w-5 text-muted-foreground/30 mx-auto" />;
-    if (val === "Unlimited") return (
-      <Badge className="bg-primary text-primary-foreground border-0">
-        Unlimited
-      </Badge>
-    );
-    return <span className="text-muted-foreground text-sm whitespace-nowrap">{val}</span>;
-  };
-
   return (
-    <div className="min-h-screen bg-background flex flex-col">
-      <Header />
-      <main className="flex-grow py-16">
-        <Section
-          id="pricing-header"
-          title="Simple, transparent plans."
-          description="Everything you need to automate your business. Prices are coming soon."
-          align="center"
-        >
-          {/* Pricing Table */}
-          <Card className="mt-16 border shadow-lg">
-            <CardContent className="p-0">
-              <div className="overflow-x-auto">
-                <Table>
-                  <TableHeader>
-                    <TableRow className="bg-muted/30 border-b">
-                      <TableHead className="font-bold text-foreground text-base py-6 pl-8 align-middle">Features</TableHead>
-                      {tiers.map((tier) => (
-                        <TableHead 
-                          key={tier.name} 
-                          className={`text-center py-6 px-8 align-top ${tier.popular ? 'bg-primary/10' : ''}`}
-                        >
-                          <div className="flex flex-col items-center">
-                            {/* Badge Area - Fixed Height to ensure alignment */}
-                            <div className="h-8 mb-2 flex items-end justify-center">
-                              {tier.popular && (
-                                <Badge className="bg-primary text-primary-foreground border-0 shadow-md px-3 py-1">
-                                  <Sparkles className="h-3 w-3 mr-1" />
-                                  Popular
-                                </Badge>
-                              )}
-                            </div>
-                            
-                            {/* Titles - Will be aligned because of fixed height above */}
-                            <div className="text-lg font-bold text-foreground mb-2">
-                              {tier.name}
-                            </div>
-                            <Badge variant="outline" className="text-xs font-semibold">
-                              {tier.price}
-                            </Badge>
-                          </div>
-                        </TableHead>
-                      ))}
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {featureGroups.map((group) => (
-                      <React.Fragment key={group.title}>
-                        <TableRow className="bg-muted/20">
-                          <TableCell
-                            colSpan={4}
-                            className="text-xs font-bold text-foreground uppercase tracking-wider py-4 pl-8"
-                          >
-                            {group.title}
-                          </TableCell>
-                        </TableRow>
-                        {group.features.map((feature) => (
-                          <TableRow 
-                            key={feature.name} 
-                            className="hover:bg-muted/10 transition-colors"
-                          >
-                            <TableCell className="font-medium text-foreground py-4 pl-8">{feature.name}</TableCell>
-                            <TableCell className="text-center py-4 px-8">{renderCell(feature.starter)}</TableCell>
-                            <TableCell className="text-center py-4 px-8">{renderCell(feature.plus)}</TableCell>
-                            <TableCell className="text-center py-4 px-8 bg-primary/5">{renderCell(feature.pro)}</TableCell>
-                          </TableRow>
-                        ))}
-                      </React.Fragment>
-                    ))}
-                    {/* Footer Row with CTAs */}
-                    <TableRow className="bg-muted/30 border-t">
-                      <TableCell className="py-6" />
-                      {tiers.map((tier) => (
-                        <TableCell 
-                          key={tier.name} 
-                          className={`text-center py-8 px-8 ${tier.popular ? 'bg-primary/10' : ''}`}
-                        >
-                          <Button 
-                            variant={tier.popular ? "default" : "outline"}
-                            disabled 
-                            className="w-full"
-                          >
-                            Coming Soon
-                          </Button>
-                        </TableCell>
-                      ))}
-                    </TableRow>
-                  </TableBody>
-                </Table>
-              </div>
-            </CardContent>
-          </Card>
+    <div className="min-h-screen bg-[#f7faf9] text-[#18332f]">
+      <Head>
+        <title>SaveADay pricing</title>
+        <meta
+          name="description"
+          content="Start SaveADay for free, then choose more capacity as your customer activity and team grow."
+        />
+        <link rel="canonical" href="https://www.saveaday.ai/pricing/" />
+      </Head>
 
-          {/* Enterprise Callout */}
-          <Card className="mt-16 max-w-4xl mx-auto border-2 border-primary/20 shadow-xl">
-            <CardContent className="p-8">
-              <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                <div className="flex-1 text-center md:text-left">
-                  <div className="flex items-center justify-center md:justify-start gap-3 mb-3">
-                    <h3 className="text-2xl font-bold text-foreground">Enterprise</h3>
-                    <Badge variant="outline" className="text-xs font-semibold">Custom</Badge>
+      <Header />
+
+      <main>
+        <section className="bg-[#071c1a] px-4 pb-16 pt-32 text-white sm:px-6 sm:pb-20 sm:pt-36 lg:px-12">
+          <div className="mx-auto max-w-[1200px] text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#74EFC3]">Plans for each stage</p>
+            <h1 className="mx-auto mt-5 max-w-4xl font-serif text-[44px] leading-[1.06] tracking-[-0.025em] sm:text-6xl">
+              Start free. Add more capacity as your business grows.
+            </h1>
+            <p className="mx-auto mt-6 max-w-2xl text-[15px] leading-7 text-white/70 sm:text-base">
+              Every plan includes the main SaveADay tools for handling customers, bookings, forms, and catalogues. Choose based on how busy your business is and how much AI help you want.
+            </p>
+          </div>
+        </section>
+
+        <section className="px-4 py-16 sm:px-6 sm:py-20 lg:px-12">
+          <div className="mx-auto grid max-w-[1200px] gap-5 lg:grid-cols-3 lg:gap-6">
+            {plans.map((plan) => (
+              <article
+                key={plan.name}
+                className={`flex flex-col rounded-2xl border bg-white p-6 sm:p-8 ${plan.featured ? "border-[#3CA6A6] shadow-[0_24px_60px_-38px_rgba(15,64,55,0.4)]" : "border-[#dfe9e6]"}`}
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <h2 className="font-serif text-3xl text-[#143a34]">{plan.name}</h2>
+                    <p className="mt-3 text-sm leading-6 text-[#647672]">{plan.description}</p>
                   </div>
-                  <p className="text-muted-foreground text-lg mb-4">
-                    Everything in Pro plus custom website development, unlimited usage, on-premise deployment options, and dedicated service management.
-                  </p>
-                  <ul className="text-sm text-muted-foreground space-y-2 text-left inline-block">
-                    <li className="flex items-center gap-2">
-                      <Check className="h-4 w-4 text-emerald-500" />
-                      <span>Unlimited everything</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="h-4 w-4 text-emerald-500" />
-                      <span>Custom website included</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="h-4 w-4 text-emerald-500" />
-                      <span>On-premise deployment (coming soon)</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="h-4 w-4 text-emerald-500" />
-                      <span>Dedicated service management</span>
-                    </li>
-                  </ul>
+                  {plan.featured ? <span className="rounded-full bg-[#74EFC3]/30 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#176c64]">Growing</span> : null}
                 </div>
-                <div className="flex flex-col gap-3">
-                  <Button size="lg" className="whitespace-nowrap" asChild>
-                    <Link href="/contact/">
-                      Contact Sales
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                  <p className="text-xs text-muted-foreground text-center">
-                    Custom pricing based on your needs
+
+                <div className="mt-8 border-y border-[#e3ece9] py-6">
+                  <p className="font-serif text-4xl text-[#102d28]">
+                    {plan.price} {plan.suffix ? <span className="font-sans text-sm text-[#78908b]">{plan.suffix}</span> : null}
                   </p>
+                  <p className="mt-2 text-xs text-[#78908b]">{plan.points}</p>
                 </div>
-              </div>
-            </CardContent>
-          </Card>
-        </Section>
+
+                <ul className="mt-7 space-y-4">
+                  {plan.outcomes.map((outcome) => (
+                    <li key={outcome} className="flex gap-3 text-sm leading-6 text-[#46625d]">
+                      <Check className="mt-1 h-4 w-4 shrink-0 text-[#3CA6A6]" />
+                      <span>{outcome}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <Link
+                  href={plan.href}
+                  className={`mt-8 inline-flex min-h-12 items-center justify-center gap-2 px-5 py-3 text-sm font-semibold transition ${plan.featured ? "bg-[#3CA6A6] text-[#082B2B] hover:bg-[#74EFC3]" : "border border-[#b9d5d0] text-[#176c64] hover:border-[#3CA6A6] hover:bg-[#edf8f5]"}`}
+                >
+                  {plan.action} <ArrowRight className="h-4 w-4" />
+                </Link>
+              </article>
+            ))}
+          </div>
+
+          <div className="mx-auto mt-10 max-w-[1200px] rounded-2xl bg-[#0c2d29] px-6 py-8 text-white sm:flex sm:items-center sm:justify-between sm:px-8">
+            <div className="max-w-2xl">
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#74EFC3]">Need a different setup?</p>
+              <h2 className="mt-3 font-serif text-3xl">Talk to us about enterprise and private deployment.</h2>
+              <p className="mt-3 text-sm leading-6 text-white/65">We can discuss higher capacity, a specific support commitment, or AI infrastructure managed by your organization.</p>
+            </div>
+            <Link href="/contact/" className="mt-6 inline-flex min-h-12 items-center gap-2 text-sm font-semibold text-[#74EFC3] sm:mt-0">
+              Contact us <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+
+          <p className="mx-auto mt-6 max-w-[1200px] text-xs leading-5 text-[#78908b]">
+            AI points are used when SaveADay provides AI help. Paid prices are monthly and exclude VAT. Current limits and allowances are shown before a business changes plan.
+          </p>
+        </section>
       </main>
+
       <Footer />
     </div>
   );

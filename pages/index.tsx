@@ -4,6 +4,7 @@ import Head from "next/head";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
+import HowItWorksSection from "@/components/HowItWorksSection";
 import UIShowcase from "@/components/UIShowcase";
 import PillarsSection from "@/components/PillarsSection";
 import TabbedTestimonial from "@/components/TabbedTestimonial";
@@ -15,10 +16,10 @@ const HomePage: NextPage = () => {
   return (
     <div className="min-h-screen bg-white">
       <Head>
-        <title>SaveADay — More customers. Less chasing.</title>
+        <title>SaveADay — Turn more enquiries into customers</title>
         <meta
           name="description"
-          content="SaveADay helps every customer enquiry move forward while giving your team back the time usually lost to admin and follow-up."
+          content="SaveADay keeps customer questions, follow-ups, bookings, and records together so your team always knows what needs attention next."
         />
       </Head>
 
@@ -26,6 +27,7 @@ const HomePage: NextPage = () => {
 
       <main className="flex flex-col">
         <HeroSection />
+        <HowItWorksSection />
         <UIShowcase />
         <PillarsSection />
         <TabbedTestimonial />

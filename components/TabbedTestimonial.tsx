@@ -48,8 +48,11 @@ export default function TabbedTestimonial() {
         <div className="mb-8 text-center sm:mb-10">
           <p className="text-[11px] font-bold text-slate-500 tracking-widest uppercase mb-4">For your customers</p>
           <h2 className="font-serif text-3xl sm:text-[40px] text-slate-900 leading-tight">
-            A better experience for the people <br className="hidden sm:block" /> who choose your business
+            Make choosing your business feel easy.
           </h2>
+          <p className="mx-auto mt-5 max-w-2xl text-sm leading-6 text-slate-600 sm:text-[15px]">
+            Customers should not have to wait, repeat themselves, or chase your team to move forward.
+          </p>
         </div>
 
         <div className="mb-10 grid w-full grid-cols-4 gap-1 sm:mb-20 sm:flex sm:w-auto sm:flex-wrap sm:justify-center sm:gap-2">
