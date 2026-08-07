@@ -2,16 +2,16 @@ import { HeartHandshake, Server, ShieldCheck, Sparkles, UsersRound } from "lucid
 
 const benefits = [
   {
-    title: "Use infrastructure you control",
-    description: "Connect SaveADay to a private model endpoint that fits your organization’s operating requirements.",
+    title: "Choose where your AI runs",
+    description: "Connect SaveADay to an AI model running on systems your organization manages.",
   },
   {
-    title: "Keep model decisions centralized",
-    description: "Your platform team chooses the active model and manages access away from everyday business users.",
+    title: "Keep access under your control",
+    description: "Your technical team chooses the model and decides who can use it.",
   },
   {
-    title: "Keep the experience simple",
-    description: "The model can change without changing how teams serve customers or how customers get help.",
+    title: "Keep SaveADay simple for everyone else",
+    description: "Employees and customers continue using the same familiar SaveADay experience.",
   },
 ];
 
@@ -20,12 +20,12 @@ export default function OnPremSection() {
     <section id="private-ai" className="w-full scroll-mt-16 bg-[#f0f0f0] py-16 sm:scroll-mt-20 sm:py-24 md:py-32">
       <div className="mx-auto grid w-full max-w-[1400px] gap-10 px-4 sm:gap-14 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-24 lg:px-12">
         <div>
-          <p className="text-[11px] font-bold text-[#3CA6A6] tracking-widest uppercase mb-4">Private and on-prem models</p>
+          <p className="text-[11px] font-bold text-[#3CA6A6] tracking-widest uppercase mb-4">For organizations that need more control</p>
           <h2 className="max-w-xl font-serif text-[34px] leading-tight text-slate-900 sm:text-5xl">
-            Use the models your business already trusts.
+            Use SaveADay with AI your organization controls.
           </h2>
           <p className="mt-5 max-w-lg text-sm leading-6 text-slate-600 sm:mt-6 sm:text-[15px] sm:leading-7">
-            For organizations that need more control, SaveADay can use a private or on-prem model endpoint on infrastructure you manage. Your platform team stays in charge of the model while the business and customer experience stays familiar.
+            SaveADay can connect to an AI model managed by your organization. Your technical team controls where it runs and who can access it, while employees and customers continue using the same simple SaveADay experience.
           </p>
 
           <div className="mt-8 space-y-4 sm:mt-10 sm:space-y-6">
@@ -50,7 +50,7 @@ export default function OnPremSection() {
 
           <div className="relative z-10">
             <div className="flex items-center justify-between text-white/50">
-              <span className="text-[9px] font-bold uppercase tracking-[0.2em]">Your private AI route</span>
+              <span className="text-[9px] font-bold uppercase tracking-[0.2em]">AI under your control</span>
               <ShieldCheck className="h-4 w-4" />
             </div>
 
@@ -61,8 +61,8 @@ export default function OnPremSection() {
                     <Server className="h-5 w-5" />
                   </span>
                   <div>
-                    <p className="text-sm font-medium">Your model endpoint</p>
-                    <p className="mt-1 text-[10px] text-white/45">Managed on infrastructure you control</p>
+                    <p className="text-sm font-medium">Your organization&apos;s AI</p>
+                    <p className="mt-1 text-[10px] text-white/45">Managed by your technical team</p>
                   </div>
                   <span className="ml-auto flex items-center gap-1.5 text-[9px] text-[#74EFC3]">
                     <span className="h-1.5 w-1.5 rounded-full bg-[#74EFC3]" /> Ready
@@ -83,12 +83,12 @@ export default function OnPremSection() {
                 <div className="rounded-xl border border-white/10 bg-white/[0.05] p-3 text-center text-white sm:p-4">
                   <UsersRound className="mx-auto h-4 w-4 text-white/60" />
                   <p className="mt-3 text-[11px] font-medium">Your team</p>
-                  <p className="mt-1 text-[9px] text-white/40">Same clear working day</p>
+                  <p className="mt-1 text-[9px] text-white/40">The same simple workspace</p>
                 </div>
                 <div className="rounded-xl border border-white/10 bg-white/[0.05] p-3 text-center text-white sm:p-4">
                   <HeartHandshake className="mx-auto h-4 w-4 text-white/60" />
                   <p className="mt-3 text-[11px] font-medium">Your customers</p>
-                  <p className="mt-1 text-[9px] text-white/40">Same easy experience</p>
+                  <p className="mt-1 text-[9px] text-white/40">The same easy next steps</p>
                 </div>
               </div>
             </div>

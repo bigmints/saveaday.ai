@@ -3,17 +3,17 @@ import { ArrowUpRight, CalendarCheck2, HeartHandshake, MessageSquareText } from 
 const outcomes = [
   {
     title: "Respond while interest is high",
-    description: "Bring every new enquiry into a clear next step before attention fades or the customer goes elsewhere.",
+    description: "See new enquiries quickly and move each person towards a useful next step.",
     icon: MessageSquareText,
   },
   {
-    title: "Make choosing you feel easy",
-    description: "Help customers understand their options and move forward without unnecessary calls, waiting, or back-and-forth.",
+    title: "Start every day with clarity",
+    description: "Know which customers are waiting, what is coming up, and where your attention matters most.",
     icon: CalendarCheck2,
   },
   {
-    title: "Give every relationship continuity",
-    description: "Let your team pick up with context, so customers feel remembered instead of having to start again each time.",
+    title: "Give your team the full picture",
+    description: "Keep customer details, conversations, bookings, and follow-ups together so nobody has to search across different tools.",
     icon: HeartHandshake,
   },
 ];
@@ -82,7 +82,7 @@ export default function PillarsSection() {
         <div className="mb-10 max-w-4xl sm:mb-12">
           <p className="text-[11px] font-bold text-slate-500 tracking-widest uppercase mb-4">For your business</p>
           <h2 className="font-serif text-[34px] leading-tight text-slate-900 sm:text-5xl">
-            Keep more opportunities. Create less work.
+            Less chasing. Fewer missed opportunities.
           </h2>
         </div>
 

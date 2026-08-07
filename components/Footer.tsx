@@ -9,11 +9,12 @@ export default function Footer() {
     {
       title: "Why SaveADay",
       links: [
+        ["How it works", "/#how-it-works"],
         ["More opportunities", "/#for-business"],
         ["Less chasing", "/#for-business"],
         ["Better customer experience", "/#for-customers"],
         ["The impact", "/#impact"],
-        ["Private AI", "/#private-ai"],
+        ["For enterprise", "/#private-ai"],
       ],
     },
     {
@@ -55,7 +56,7 @@ export default function Footer() {
             </Link>
 
             <div className="max-w-xs text-xs text-[#999]">
-              <p className="leading-6">Help more customers move forward while giving your team back the time usually lost to admin and follow-up.</p>
+              <p className="leading-6">Keep customer questions, follow-ups, bookings, and records together so your team knows what needs attention next.</p>
               <a href="mailto:hello@saveaday.ai" className="mt-8 inline-flex items-center gap-2 text-[#74EFC3]/80 hover:text-[#74EFC3] transition-colors">
                 <Mail className="w-4 h-4" /> hello@saveaday.ai
               </a>

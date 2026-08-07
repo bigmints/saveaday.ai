@@ -64,12 +64,12 @@ export default function MapSection() {
             <div className="max-w-2xl">
               <p className="text-[11px] font-bold text-[#3CA6A6] tracking-widest uppercase mb-4">A better business relationship</p>
               <h2 className="font-serif text-[34px] leading-tight text-slate-900 sm:text-5xl">
-                Easier to run. Easier to buy from.
+                Better for the business. Easier for the customer.
               </h2>
             </div>
             <div className="max-w-[430px]">
               <p className="text-sm text-slate-600 leading-relaxed">
-                The value is not another tool for the team to manage. It is fewer missed moments, clearer work, and a customer experience that keeps moving.
+                Give customers faster answers and clear next steps while your team spends less time organizing and chasing work.
               </p>
             </div>
           </div>
