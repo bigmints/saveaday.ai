@@ -1,44 +1,26 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
+import Link from "next/link";
+import { MessageSquareText, Mic, ImageIcon, FileCheck2, Languages, ShieldCheck, ArrowRight, MapPin, MessagesSquare, Check } from "lucide-react";
 import HeroSection from "@/components/HeroSection";
-import HowItWorksSection from "@/components/HowItWorksSection";
-import UIShowcase from "@/components/UIShowcase";
-import PillarsSection from "@/components/PillarsSection";
-import TabbedTestimonial from "@/components/TabbedTestimonial";
-import MapSection from "@/components/MapSection";
-import OnPremSection from "@/components/OnPremSection";
-import CTASection from "@/components/CTASection";
-
-const HomePage: NextPage = () => {
-  return (
-    <div className="min-h-screen bg-white">
-      <Head>
-        <title>SaveADay — Turn more enquiries into customers</title>
-        <meta
-          name="description"
-          content="SaveADay keeps customer questions, follow-ups, bookings, and records together so your team always knows what needs attention next."
-        />
-      </Head>
-
-      <Header />
-
-      <main className="flex flex-col">
-        <HeroSection />
-        <HowItWorksSection />
-        <UIShowcase />
-        <PillarsSection />
-        <TabbedTestimonial />
-        <MapSection />
-        <OnPremSection />
-        <CTASection />
-      </main>
-
-      <Footer />
-    </div>
-  );
-};
-
-export default HomePage;
+import PageShell from "@/components/PageShell";
+const steps = [
+  ["01", MessageSquareText, "Make reporting effortless.", "Your teams report a problem in a message, photo or voice note. A simple first step means less interruption to their working day."],
+  ["02", Languages, "Cut the back and forth.", "The details come together in a clear written request. Your team can ask for anything missing without starting another conversation."],
+  ["03", FileCheck2, "Give managers a clear starting point.", "Managers see the request, the supporting details and what still needs attention, so they can review it with confidence."],
+] as const;
+const features = [
+  [Mic, "Give managers time back.", "Reduce the calls, messages and follow-ups needed to understand a problem. Spend more of the day managing the business."],
+  [ImageIcon, "Keep everyday issues visible.", "See the requests waiting for attention and the questions still to be answered. Help keep small problems from being overlooked."],
+  [MapPin, "Bring consistency across locations.", "Give every location a familiar way to report issues, and central teams a consistent record to review as the business grows."],
+  [ShieldCheck, "Make decisions with confidence.", "Keep the message, photo and conversation alongside the request. Your managers can check the facts before deciding what comes next."],
+] as const;
+export default function HomePage() {
+  return <PageShell title="Keep your business moving" description="Saveaday helps businesses spend less time chasing problems and more time moving forward. Simple reporting for teams. Clearer visibility for managers." path="/">
+    <HeroSection />
+    <section id="how-it-works" className="scroll-mt-20 bg-[#f7faf9] px-5 py-20 sm:px-8 lg:px-12 lg:py-28"><div className="mx-auto max-w-[1304px]"><p className="eyebrow">Less effort to report. Less effort to manage.</p><div className="mt-5 flex flex-col justify-between gap-6 md:flex-row md:items-end"><h2 className="display-heading max-w-xl">A simpler working day.<br />For everyone involved.</h2><p className="max-w-md text-base leading-8 text-[#4d6460]">Make it easy for staff to raise an issue and for managers to understand it. Keep the work moving without adding more administration.</p></div><div className="mt-14 grid gap-10 md:grid-cols-3">{steps.map(([number, Icon, title, text]) => <article key={number} className="border-t border-[#18332f]/20 pt-6"><div className="flex items-center justify-between"><span className="font-serif text-4xl text-[#3CA6A6]">{number}</span><Icon size={26} className="text-[#18332f]" /></div><h3 className="mt-8 text-xl font-semibold tracking-tight text-[#18332f]">{title}</h3><p className="mt-4 text-sm leading-7 text-[#4d6460]">{text}</p></article>)}</div></div></section>
+    <section className="bg-white px-5 py-20 sm:px-8 lg:px-12 lg:py-28"><div className="mx-auto grid max-w-[1304px] items-center gap-12 lg:grid-cols-[.85fr_1.15fr]"><div><p className="eyebrow">Get the whole picture, without the chasing</p><h2 className="display-heading mt-5">Clear information.<br /><em>Confident decisions.</em></h2><p className="mt-6 max-w-md text-base leading-8 text-[#4d6460]">When a request reaches a manager, the details should be easy to find. Saveaday keeps the report and the conversation together, helping teams spend less time reconstructing the problem.</p><Link href="/docs/" className="mt-8 inline-flex items-center gap-4 text-sm font-semibold text-[#18332f]">See the experience <ArrowRight size={18} /></Link></div>
+    <div className="overflow-hidden rounded-2xl border border-[#dce6e2] bg-[#f7faf9] shadow-[0_20px_70px_-30px_rgba(7,28,26,.25)]"><div className="flex items-center justify-between border-b border-[#dce6e2] px-5 py-4"><span className="text-xs font-semibold uppercase tracking-widest text-[#18332f]">A clearer view for your team</span><span className="rounded-full bg-white px-3 py-1 text-xs text-[#4d6460]">Illustrative example</span></div><div className="grid gap-0 sm:grid-cols-2"><div className="border-b border-[#dce6e2] p-5 sm:border-b-0 sm:border-r"><p className="text-xs font-semibold text-[#4d6460]">FROM THE TEAM</p><div className="mt-5 rounded-xl bg-[#def7ed] p-4 text-sm leading-6 text-[#18332f]">The air conditioner at our branch is leaking. I have attached a photo.</div><div className="mt-3 flex items-center gap-3 rounded-xl border border-[#dce6e2] bg-white p-4 text-sm text-[#4d6460]"><ImageIcon size={20} /> Photo included with the request</div><p className="mt-6 text-xs leading-6 text-[#4d6460]">The details stay together, even when the conversation continues.</p></div><div className="bg-white p-5"><p className="text-xs font-semibold text-[#4d6460]">READY FOR A MANAGER TO CHECK</p><span className="mt-5 inline-block rounded-full bg-[#fff4dc] px-3 py-1 text-xs text-[#775514]">Needs attention</span><h3 className="mt-4 text-lg font-semibold text-[#18332f]">Air conditioner leaking</h3><p className="mt-3 text-sm leading-7 text-[#4d6460]">Staff reported water leaking from the air conditioner. A photo is attached for review.</p><div className="mt-6 flex items-center gap-2 border-t border-[#dce6e2] pt-4 text-xs text-[#18332f]"><Check size={16} /> The report and supporting details, together</div></div></div></div></div></section>
+    <section id="for-business" className="scroll-mt-20 bg-[#0c2d29] px-5 py-20 text-white sm:px-8 lg:px-12 lg:py-28"><div className="mx-auto max-w-[1304px]"><p className="text-xs font-semibold uppercase tracking-[.18em] text-[#74EFC3]">More productive teams. Better informed managers.</p><h2 className="mt-5 max-w-2xl font-serif text-4xl leading-[1.12] tracking-tight sm:text-5xl">Make time for the work<br /><em className="font-normal text-[#74EFC3]">that moves you forward.</em></h2><div className="mt-14 grid gap-x-16 gap-y-12 md:grid-cols-2">{features.map(([Icon, title, text]) => <article key={title} className="border-t border-white/15 pt-6"><Icon size={26} className="text-[#74EFC3]" /><h3 className="mt-5 text-xl font-semibold">{title}</h3><p className="mt-3 max-w-lg text-sm leading-7 text-white/65">{text}</p></article>)}</div></div></section>
+    <section id="channels" className="scroll-mt-20 bg-[#f7faf9] px-5 py-20 sm:px-8 lg:px-12 lg:py-28"><div className="mx-auto max-w-[1304px]"><p className="eyebrow">A simple change your teams can use</p><h2 className="display-heading mt-5 max-w-2xl">Easy for staff.<br />Clear for the business.</h2><div className="mt-12 grid gap-5 md:grid-cols-3">{[[MessageSquareText, "WhatsApp Business", "Let teams report an issue through a familiar conversation, with a photo or voice note when it helps."], [MessagesSquare, "Telegram", "Give teams who already use Telegram a familiar way to raise a request and answer follow-up questions."], [Mic, "Saveaday app", "Give your staff a simple place to report problems, share the details and continue the conversation."]].map(([Icon, title, text]) => { const ChannelIcon = Icon as typeof Mic; return <article key={String(title)} className="rounded-xl border border-[#dce6e2] bg-white p-7"><ChannelIcon className="text-[#3CA6A6]" size={28} /><h3 className="mt-6 text-lg font-semibold text-[#18332f]">{String(title)}</h3><p className="mt-3 text-sm leading-7 text-[#4d6460]">{String(text)}</p></article>; })}</div><p className="mt-6 text-sm leading-7 text-[#4d6460]">Choose the ways your teams will report requests as part of your setup. Your managers stay in control of checking the details and deciding the next step.</p></div></section>
+    <section className="bg-[#74EFC3] px-5 py-20 sm:px-8 lg:px-12"><div className="mx-auto flex max-w-[1304px] flex-col justify-between gap-8 md:flex-row md:items-center"><div><p className="text-xs font-semibold uppercase tracking-[.18em] text-[#18332f]">Put a clearer working day on the agenda</p><h2 className="display-heading mt-5">Let’s give your teams<br />more time to move forward.</h2><p className="mt-5 max-w-xl text-base leading-7 text-[#18332f]/75">See how Saveaday could reduce the chasing across your locations and give your managers a clearer view of everyday issues.</p></div><Link href="/contact/" className="inline-flex min-h-14 shrink-0 items-center justify-center gap-6 bg-[#071c1a] px-7 py-4 text-sm font-semibold text-white hover:bg-[#18332f]">Request a demo <ArrowRight size={18} /></Link></div></section>
+  </PageShell>;
+}

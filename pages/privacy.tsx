@@ -1,34 +1,3 @@
-import type { NextPage } from "next";
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
-
-const PrivacyPage: NextPage = () => {
-  return (
-    <main className="mx-auto flex min-h-screen w-full max-w-3xl flex-col gap-6 px-6 py-24 text-gray-200">
-      <h1 className="text-3xl font-semibold text-white sm:text-4xl">
-        Privacy &amp; Data Respect
-      </h1>
-      <p className="text-lg text-gray-300">
-        SaveADay.ai is built with privacy in mind. We only collect the minimal
-        data required to keep your automations running and we never sell your
-        information. Full terms will follow as we launch publicly.
-      </p>
-      <p className="text-sm text-gray-400">
-        Curious about how we handle data today? Reach out at{" "}
-        <Link href="mailto:hello@saveaday.ai" className="text-brand-teal">
-          hello@saveaday.ai
-        </Link>{" "}
-        and we will share the latest draft.
-      </p>
-      <Link
-        href="/"
-        className="mt-8 inline-flex w-fit items-center gap-2 rounded-full border border-brand-teal/60 px-6 py-2 text-sm font-semibold text-brand-teal transition hover:bg-brand-teal/10"
-      >
-        <ArrowLeft className="h-4 w-4" />
-        Back to the homepage
-      </Link>
-    </main>
-  );
-};
-
-export default PrivacyPage;
+import PageShell from "@/components/PageShell";
+import { CONTACT_EMAIL } from "@/lib/site";
+export default function PrivacyPage() { return <PageShell title="Privacy and data" description="Information about Saveaday website analytics, demo requests and handling requests." path="/privacy/"><section className="bg-[#071c1a] px-5 pb-16 pt-36 text-white sm:px-8 lg:px-12"><div className="mx-auto max-w-[1304px]"><p className="eyebrow !text-[#74EFC3]">Privacy and data</p><h1 className="mt-5 font-serif text-5xl">Know where your details go.</h1></div></section><section className="bg-[#f7faf9] px-5 py-16 sm:px-8 lg:px-12"><div className="mx-auto max-w-3xl space-y-8 text-base leading-8 text-[#4d6460]"><article><h2 className="font-serif text-3xl text-[#18332f]">Demo requests</h2><p className="mt-4">The demo link opens your email app. Your message is sent to {CONTACT_EMAIL} only when you send it. Share the business details needed for a demo; please leave out passwords or confidential customer details.</p></article><article><h2 className="font-serif text-3xl text-[#18332f]">Website analytics</h2><p className="mt-4">This public website uses Google Analytics to understand page visits. Your organization provides access to the Saveaday service. Your browser’s privacy settings can limit analytics requests.</p></article><article><h2 className="font-serif text-3xl text-[#18332f]">Requests in Saveaday</h2><p className="mt-4">Saveaday keeps request messages, photos and voice notes so your team can check the details. Services chosen by your organization may process the information needed to prepare a written request. When teams use other messaging services, those services also handle their messages. Your organization controls who can see requests.</p><p className="mt-4">Ask your organization about who can access your information, where it is stored and how long it is kept. These arrangements depend on the service your organization uses.</p></article><article><h2 className="font-serif text-3xl text-[#18332f]">Contact</h2><p className="mt-4">Saveaday is a product of Uvega FZE LLC. For questions about this website or a demo request, email <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-[#18332f] underline">{CONTACT_EMAIL}</a>.</p></article></div></section></PageShell>; }

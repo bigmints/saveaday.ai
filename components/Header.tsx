@@ -1,110 +1,22 @@
-"use client";
-
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { APP_URL } from "@/lib/site";
 
-const AUTH_URL = process.env.NODE_ENV === "development"
-  ? "http://localhost:3010"
-  : "https://app.saveaday.ai";
-
-const navItems = [
-  { label: "How it works", href: "/#how-it-works", hasDropdown: false },
-  { label: "For your business", href: "/#for-business", hasDropdown: false },
-  { label: "For customers", href: "/#for-customers", hasDropdown: false },
-  { label: "For enterprise", href: "/#private-ai", hasDropdown: false },
-];
-
+const links = [["How it works", "/#how-it-works"], ["Business benefits", "/#for-business"], ["For your teams", "/#channels"], ["The experience", "/docs/"]];
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileOpen, setIsMobileOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 10);
-    setIsScrolled(window.scrollY > 10 || Boolean(window.location.hash));
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const headerBg = isScrolled ? "bg-black/95 backdrop-blur-md" : "bg-transparent";
-
-  return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${headerBg}`}>
-      <div className="mx-auto flex h-16 w-full max-w-[1400px] items-center justify-between px-4 sm:h-20 sm:px-6 lg:px-12">
-        <div className="flex items-center gap-10">
-          <Link href="/" className="flex min-h-11 items-center gap-2.5 font-bold text-[13px] tracking-widest text-white transition-colors uppercase sm:gap-3 sm:text-sm" aria-label="SaveADay home">
-            <Image src="/logo.svg" alt="" width={36} height={36} className="h-8 w-8 rounded-lg sm:h-9 sm:w-9 sm:rounded-xl" priority />
-            <span>SAVEADAY</span>
-          </Link>
-
-          <nav className="hidden lg:flex items-center gap-6" aria-label="Primary navigation">
-            {navItems.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="flex items-center gap-1.5 text-[13px] text-white/90 hover:text-[#74EFC3] transition-colors"
-              >
-                {item.label}
-                {item.hasDropdown && <ChevronDown className="w-3.5 h-3.5 opacity-60" />}
-              </Link>
-            ))}
-          </nav>
-        </div>
-
-        <div className="hidden lg:flex items-center gap-6">
-          <Link href="/contact/" className="text-[13px] text-white/90 hover:text-[#74EFC3] transition-colors">
-            Contact
-          </Link>
-          <Link href={AUTH_URL} className="text-[13px] text-white/90 hover:text-[#74EFC3] transition-colors">
-            Log in
-          </Link>
-          <Link
-            href={`${AUTH_URL}/signup`}
-            className="px-4 py-2 text-[13px] font-medium bg-[#3CA6A6] text-[#082B2B] hover:bg-[#74EFC3] transition-colors"
-          >
-            Sign up
-          </Link>
-        </div>
-
-        <button
-          type="button"
-          className="-mr-2 inline-flex h-11 w-11 items-center justify-center text-white lg:hidden"
-          onClick={() => setIsMobileOpen(!isMobileOpen)}
-          aria-label={isMobileOpen ? "Close navigation" : "Open navigation"}
-          aria-expanded={isMobileOpen}
-          aria-controls="mobile-navigation"
-        >
-          {isMobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
-      </div>
-
-      {isMobileOpen && (
-        <nav id="mobile-navigation" aria-label="Mobile navigation" className="absolute left-0 top-full flex max-h-[calc(100svh-4rem)] w-full flex-col overflow-y-auto border-t border-white/10 bg-black/95 px-4 py-4 backdrop-blur-md lg:hidden">
-          {navItems.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className="flex min-h-12 items-center justify-between border-b border-white/10 text-base text-white"
-              onClick={() => setIsMobileOpen(false)}
-            >
-              {item.label}
-              {item.hasDropdown && <ChevronDown className="w-5 h-5 text-white/50" />}
-            </Link>
-          ))}
-          <div className="flex flex-col pt-3">
-            <Link href="/contact/" className="flex min-h-12 items-center text-base text-white" onClick={() => setIsMobileOpen(false)}>Contact</Link>
-            <Link href={AUTH_URL} className="flex min-h-12 items-center text-base text-white" onClick={() => setIsMobileOpen(false)}>Log in</Link>
-            <Link
-              href={`${AUTH_URL}/signup`}
-              className="mt-3 inline-flex min-h-12 w-full items-center justify-center px-5 py-3 text-base font-medium bg-[#3CA6A6] text-[#082B2B]"
-              onClick={() => setIsMobileOpen(false)}
-            >
-              Sign up
-            </Link>
-          </div>
-        </nav>
-      )}
-    </header>
-  );
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+  useEffect(() => { const update = () => setScrolled(window.scrollY > 10); update(); window.addEventListener("scroll", update, { passive: true }); return () => window.removeEventListener("scroll", update); }, []);
+  useEffect(() => { if (!open) return; const escape = (e: KeyboardEvent) => { if (e.key === "Escape") { setOpen(false); document.getElementById("navigation-toggle")?.focus(); } }; window.addEventListener("keydown", escape); return () => window.removeEventListener("keydown", escape); }, [open]);
+  return <><a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-white focus:p-3 focus:text-black">Skip to content</a><header className={`fixed inset-x-0 top-0 z-50 transition-colors ${scrolled || open ? "bg-black/95 backdrop-blur-md" : "bg-black/30"}`}>
+    <div className="mx-auto flex h-20 max-w-[1400px] items-center justify-between px-5 sm:px-8 lg:px-12">
+      <Link href="/" aria-label="Saveaday home" className="flex items-center gap-3 text-sm font-bold tracking-[.16em] text-white"><Image src="/logo.svg" alt="" width={36} height={36} className="rounded-lg" priority /><span>SAVEADAY</span></Link>
+      <nav aria-label="Primary navigation" className="hidden items-center gap-7 lg:flex">{links.map(([label, href]) => <Link key={label} href={href} className="text-sm text-white/80 hover:text-[#74EFC3]">{label}</Link>)}</nav>
+      <div className="hidden items-center gap-6 lg:flex"><a href={APP_URL} className="text-sm text-white/90 hover:text-[#74EFC3]">Sign in</a><Link href="/contact/" className="bg-[#74EFC3] px-5 py-3 text-sm font-medium text-[#082B2B] hover:bg-white">Request a demo</Link></div>
+      <button id="navigation-toggle" type="button" aria-label={open ? "Close navigation" : "Open navigation"} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(!open)} className="flex size-12 items-center justify-center text-white lg:hidden">{open ? <X /> : <Menu />}</button>
+    </div>
+    {open && <nav id="mobile-navigation" aria-label="Mobile navigation" className="flex max-h-[calc(100svh-5rem)] flex-col overflow-y-auto border-t border-white/10 bg-black px-5 pb-6 lg:hidden">{links.map(([label, href]) => <Link key={label} href={href} onClick={() => setOpen(false)} className="py-4 text-white">{label}</Link>)}<a href={APP_URL} className="py-4 text-white">Sign in</a><Link href="/contact/" onClick={() => setOpen(false)} className="mt-3 bg-[#74EFC3] p-4 text-center font-medium text-[#082B2B]">Request a demo</Link></nav>}
+  </header></>;
 }

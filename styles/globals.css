@@ -160,3 +160,11 @@ html {
     @apply bg-background text-foreground;
   }
 }
+
+html { scroll-behavior: smooth; }
+body { color: #18332f; }
+.eyebrow { font-size: .7rem; font-weight: 600; text-transform: uppercase; letter-spacing: .18em; color: #3c7770; }
+.display-heading { font-family: "Newsreader", Georgia, serif; font-size: clamp(2.4rem, 4vw, 3.5rem); line-height: 1.12; letter-spacing: -.025em; color: #18332f; }
+.display-heading em { font-weight: 400; }
+a:focus-visible, button:focus-visible { outline: 3px solid #3CA6A6; outline-offset: 5px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; } }
