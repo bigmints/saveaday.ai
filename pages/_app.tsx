@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }: AppProps) {
           name="description"
           content="Give your teams a simple way to report problems and your managers a clearer view of what needs attention. Spend less time chasing details with Saveaday."
         />
-        <link rel="icon" href="/logo.svg" />
+        <link rel="icon" type="image/svg+xml" href="/brand/saveaday-woven-color.svg" />
         <title>Saveaday — Keep your business moving</title>
       </Head>
       <div className="font-sans">
