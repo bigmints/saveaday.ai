@@ -9,6 +9,17 @@ This document is the source of truth for SaveADay's visual language and product 
 
 If implementation and this document disagree, update the implementation or intentionally revise this document. Do not create a third interpretation inside a page or feature.
 
+## Website identity override — 2026-10-16
+
+The public website uses the approved woven Saveaday artwork in `public/brand/`, including its supplied white wordmark. Preserve this artwork unchanged. This website override supersedes the older teal/mint values and wordmark construction below; application guidance is outside this website change.
+
+- Logo palette: purple `#a848d6`, coral `#ed5a76`, orange `#f69a39`.
+- Accessible primary actions on light surfaces: deep purple `#79339b` with white text; hover `#60257d`.
+- Actions on dark surfaces: orange `#f69a39` with ink `#261d2c`.
+- Main ink `#302735`, muted text `#706779`, borders `#e5dce9`, soft panels `#f2eaf6`, page surface `#faf8fb`.
+- Use the logo gradient sparingly in the hero highlight. Keep the six industry examples quiet and consistent.
+- Retain the approved Modern pairing: Mona Sans display and DM Sans body. Keep the interactive merged use-case section and Youbot link.
+
 ## 1. Product character
 
 SaveADay should feel:
@@ -146,6 +157,8 @@ Status color supplements text; it never replaces a written status.
 Charts use, in order: `#3CA6A6`, `#74EFC3`, `#237A7A`, `#53CFA8`, `#9AF6D4`. Never rely on color alone; include labels, values, or patterns.
 
 ## 5. Typography
+
+Website override approved 2026-10-14: public marketing pages use the local Mona Sans variable font for display headings (weight 500, tracking -0.045em) and DM Sans for body text and controls. Emphasized headlines stay upright. This supersedes the Newsreader display guidance below for the website only; application typography remains unchanged.
 
 SaveADay uses two type families.
 

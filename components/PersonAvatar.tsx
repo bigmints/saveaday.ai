@@ -1,0 +1,7 @@
+type Props = { person?: "maya" | "ravi" | "noor" | "alex"; size?: number };
+/** Decorative, fictional people for illustrative conversations. */
+export default function PersonAvatar({ person = "maya", size = 42 }: Props) {
+  const palette = { maya: ["#e8e4dc", "#c99674", "#40372f", "#738573"], ravi: ["#e5e9df", "#bd8969", "#393b34", "#8a9780"], noor: ["#ede7df", "#dfb590", "#6b5b4b", "#7c8d83"], alex: ["#e5e9e0", "#e3ba98", "#75634f", "#536d5b"] }[person];
+  const [background, skin, hair, shirt] = palette;
+  return <svg width={size} height={size} viewBox="0 0 64 64" fill="none" aria-hidden="true" style={{flexShrink:0}}><circle cx="32" cy="32" r="32" fill={background}/>{person === "maya" && <path d="M17 33c-6-21 31-28 31-2v21H16z" fill={hair}/>}<path d="M8 64c1-15 11-21 24-21s23 6 24 21" fill={shirt}/><path d="M27 39h10v9c-3 4-7 4-10 0" fill={skin}/><ellipse cx="32" cy="29" rx="13" ry="16" fill={skin}/><path d={person === "ravi" ? "M19 29c-6-19 26-25 28-5-10 0-15-6-15-6s-4 8-13 11Z" : person === "noor" ? "M18 31c-5-24 33-27 29 1l-5-11c-9 4-12 0-14-3-2 7-5 9-10 13Z" : "M18 28c-2-24 32-24 29-1-7-2-11-9-11-9-4 6-10 9-18 10Z"} fill={hair}/><path d="M26 30h.2M38 30h.2" stroke="#433c32" strokeWidth="2.8" strokeLinecap="round"/><path d="M29 37q3 3 6 0" stroke="#805944" strokeWidth="1.6" strokeLinecap="round"/>{person === "alex" && <g stroke="#75634f" strokeWidth="1.3"><rect x="22" y="27" width="9" height="7" rx="3"/><rect x="34" y="27" width="9" height="7" rx="3"/><path d="M31 30h3"/></g>}</svg>;
+}

@@ -1,16 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --color-brand-accent: #74EFC3;
+  --color-brand-accent: #f69a39;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Newsreader", ui-serif, Georgia, serif;
-  --font-display: "Newsreader", ui-serif, Georgia, serif;
+  --font-serif: "Mona Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Mona Sans", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Google Sans Code", ui-monospace, SFMono-Regular, monospace;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -51,6 +51,15 @@
 }
 
 :root {
+  --brand-purple: #a848d6;
+  --brand-coral: #ed5a76;
+  --brand-orange: #f69a39;
+  --brand-action: #79339b;
+  --brand-ink: #302735;
+  --brand-surface: #faf8fb;
+  --brand-soft: #f2eaf6;
+  --brand-line: #e5dce9;
+  --brand-muted: #706779;
   --background: #FFFFFF;
   --foreground: #000000;
   color-scheme: light;
@@ -59,36 +68,36 @@
   --card-foreground: #000000;
   --popover: #FFFFFF;
   --popover-foreground: #000000;
-  --primary: #3CA6A6;
-  --primary-foreground: #082B2B;
+  --primary: #8835ad;
+  --primary-foreground: #261d2c;
   --secondary: #F3F4F6;
   --secondary-foreground: #111111;
   --muted: #F8F8FB;
-  --muted-foreground: #8C8CAA;
-  --accent: #74EFC3;
-  --accent-foreground: #123B35;
+  --muted-foreground: #706779;
+  --accent: #f69a39;
+  --accent-foreground: #36213f;
   --destructive: #E84365;
   --destructive-foreground: #FFFFFF;
   --border: #EAEAF2;
   --input: #EAEAF2;
-  --ring: #3CA6A6;
-  --chart-1: #3CA6A6;
-  --chart-2: #74EFC3;
-  --chart-3: #237A7A;
-  --chart-4: #53CFA8;
-  --chart-5: #9AF6D4;
+  --ring: #8835ad;
+  --chart-1: #8835ad;
+  --chart-2: #f69a39;
+  --chart-3: #6d288d;
+  --chart-4: #776b7e;
+  --chart-5: #c5b3cf;
   --sidebar: #FFFFFF;
   --sidebar-foreground: #000000;
-  --sidebar-primary: #3CA6A6;
-  --sidebar-primary-foreground: #082B2B;
-  --sidebar-accent: #74EFC3;
-  --sidebar-accent-foreground: #123B35;
+  --sidebar-primary: #8835ad;
+  --sidebar-primary-foreground: #261d2c;
+  --sidebar-accent: #f69a39;
+  --sidebar-accent-foreground: #36213f;
   --sidebar-border: #EAEAF2;
-  --sidebar-ring: #3CA6A6;
-  --color-success: #27AE60;
+  --sidebar-ring: #8835ad;
+  --color-success: #775286;
   --color-danger: #E84365;
   --color-warning: #F2994A;
-  --color-info: #3CA6A6;
+  --color-info: #8835ad;
 }
 
 .dark {
@@ -98,31 +107,31 @@
   --card-foreground: #FFFFFF;
   --popover: #212B44;
   --popover-foreground: #FFFFFF;
-  --primary: #74EFC3;
-  --primary-foreground: #082B2B;
+  --primary: #f69a39;
+  --primary-foreground: #261d2c;
   --secondary: #1F2937;
   --secondary-foreground: #FFFFFF;
   --muted: #273250;
   --muted-foreground: #B1B1CA;
-  --accent: #3CA6A6;
-  --accent-foreground: #071F1F;
+  --accent: #8835ad;
+  --accent-foreground: #211a26;
   --destructive: #E84365;
   --border: rgba(255,255,255,0.1);
   --input: rgba(255,255,255,0.15);
-  --ring: #74EFC3;
-  --chart-1: #3CA6A6;
-  --chart-2: #74EFC3;
-  --chart-3: #237A7A;
-  --chart-4: #53CFA8;
-  --chart-5: #9AF6D4;
+  --ring: #f69a39;
+  --chart-1: #8835ad;
+  --chart-2: #f69a39;
+  --chart-3: #6d288d;
+  --chart-4: #776b7e;
+  --chart-5: #c5b3cf;
   --sidebar: #161D2E;
   --sidebar-foreground: #FFFFFF;
-  --sidebar-primary: #74EFC3;
-  --sidebar-primary-foreground: #082B2B;
+  --sidebar-primary: #f69a39;
+  --sidebar-primary-foreground: #261d2c;
   --sidebar-accent: #334268;
   --sidebar-accent-foreground: #FFFFFF;
   --sidebar-border: rgba(255,255,255,0.1);
-  --sidebar-ring: #74EFC3;
+  --sidebar-ring: #f69a39;
 }
 
 body {
@@ -148,8 +157,8 @@ html {
 }
 
 ::selection {
-  background: #74EFC3;
-  color: #082B2B;
+  background: #f69a39;
+  color: #261d2c;
 }
 
 @layer base {
@@ -162,9 +171,18 @@ html {
 }
 
 html { scroll-behavior: smooth; }
-body { color: #18332f; }
-.eyebrow { font-size: .7rem; font-weight: 600; text-transform: uppercase; letter-spacing: .18em; color: #3c7770; }
-.display-heading { font-family: "Newsreader", Georgia, serif; font-size: clamp(2.4rem, 4vw, 3.5rem); line-height: 1.12; letter-spacing: -.025em; color: #18332f; }
+body { color: #302735; }
+.eyebrow { font-size: .7rem; font-weight: 600; text-transform: uppercase; letter-spacing: .18em; color: #775286; }
+.display-heading { font-family: var(--font-display); font-size: clamp(2.4rem, 4vw, 3.5rem); line-height: 1.12; letter-spacing: -.025em; color: #302735; }
 .display-heading em { font-weight: 400; }
-a:focus-visible, button:focus-visible { outline: 3px solid #3CA6A6; outline-offset: 5px; }
+a:focus-visible, button:focus-visible { outline: 3px solid #8835ad; outline-offset: 5px; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; } }
+
+/* Approved website pairing: Mona Sans display with DM Sans body text. */
+@font-face { font-family: "Mona Sans"; src: url("/fonts/Mona-Sans.woff2") format("woff2"); font-weight: 200 900; font-style: normal; font-display: swap; }
+.font-serif, .display-heading, #flow-heading { font-family: var(--font-display); font-weight: 500; letter-spacing: -.045em; }
+.font-serif em, .display-heading em, #flow-heading em { font-style: normal; font-weight: 500; }
+
+/* Logo colors are accents; neutral surfaces keep the illustrations calm. */
+.brand-highlight { color: #f69a39; background: linear-gradient(100deg, #f69a39 5%, #ed5a76 53%, #c983e8 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+@media (forced-colors: active) { .brand-highlight { background: none; -webkit-text-fill-color: currentColor; } }

@@ -1,6 +1,6 @@
 # Saveaday website
 
-Copied from the existing `bigmints/saveaday.ai` website on 2026-10-05, retaining its mark, photography, mint/black palette and typography. This is the canonical website source for the new Saveaday service-request intake product.
+Copied from the existing `bigmints/saveaday.ai` website on 2026-10-05, retaining its photography and existing GitHub Pages hosting. The website now uses the approved woven logo with purple, coral and orange accents, Mona Sans headings and DM Sans body text. This is the canonical website source for the new Saveaday service-request intake product.
 
 - `npm ci`
 - `npm run dev` — port 3009
