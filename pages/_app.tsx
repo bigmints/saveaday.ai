@@ -1,5 +1,6 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import Script from "next/script";
 
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import "@/styles/globals.css";
@@ -20,6 +21,12 @@ export default function App({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
       </div>
       <GoogleAnalytics />
+      <Script
+        id="saveaday-business-chat"
+        src="https://youbot.live/widget.js"
+        data-server="https://youbot.live/saveaday"
+        strategy="afterInteractive"
+      />
     </>
   );
 }
