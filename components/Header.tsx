@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { APP_URL } from "@/lib/site";
 
 const links = [["See it in action", "/#use-cases"], ["For professionals", "/#for-professionals"], ["The experience", "/docs/"], ["Contact us", "/contact/"]];
 export default function Header() {
+ const { pathname } = useRouter();
+ const solidHeader = pathname === "/contact" || pathname === "/demo";
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   useEffect(() => { const update = () => setScrolled(window.scrollY > 10); update(); window.addEventListener("scroll", update, { passive: true }); return () => window.removeEventListener("scroll", update); }, []);
