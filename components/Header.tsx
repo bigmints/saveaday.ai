@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { APP_URL } from "@/lib/site";
 
-const links = [["See it in action", "/#use-cases"], ["For professionals", "/#for-professionals"], ["The experience", "/docs/"]];
+const links = [["See it in action", "/#use-cases"], ["For professionals", "/#for-professionals"], ["The experience", "/docs/"], ["Contact us", "/contact/"]];
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -14,9 +14,9 @@ export default function Header() {
     <div className="mx-auto flex h-20 max-w-[1400px] items-center justify-between px-5 sm:px-8 lg:px-12">
       <Link href="/" aria-label="Saveaday home" className="flex items-center gap-3 text-sm font-bold tracking-[.16em] text-white"><Image src="/brand/saveaday-logo-white.svg" alt="Saveaday" width={172} height={36} className="h-9 w-[172px]" priority /></Link>
       <nav aria-label="Primary navigation" className="hidden items-center gap-7 lg:flex">{links.map(([label, href]) => <Link key={label} href={href} className="text-sm text-white/80 hover:text-[#f69a39]">{label}</Link>)}</nav>
-      <div className="hidden items-center gap-6 lg:flex"><a href={APP_URL} className="text-sm text-white/90 hover:text-[#f69a39]">Sign in</a><Link href="/contact/" className="bg-[#f69a39] px-5 py-3 text-sm font-medium text-[#261d2c] hover:bg-white">Request a demo</Link></div>
+      <div className="hidden items-center gap-6 lg:flex"><a href={APP_URL} className="text-sm text-white/90 hover:text-[#f69a39]">Sign in</a><Link href="/demo/" className="bg-[#f69a39] px-5 py-3 text-sm font-medium text-[#261d2c] hover:bg-white">Request a demo</Link></div>
       <button id="navigation-toggle" type="button" aria-label={open ? "Close navigation" : "Open navigation"} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(!open)} className="flex size-12 items-center justify-center text-white lg:hidden">{open ? <X /> : <Menu />}</button>
     </div>
-    {open && <nav id="mobile-navigation" aria-label="Mobile navigation" className="flex max-h-[calc(100svh-5rem)] flex-col overflow-y-auto border-t border-white/10 bg-black px-5 pb-6 lg:hidden">{links.map(([label, href]) => <Link key={label} href={href} onClick={() => setOpen(false)} className="py-4 text-white">{label}</Link>)}<a href={APP_URL} className="py-4 text-white">Sign in</a><Link href="/contact/" onClick={() => setOpen(false)} className="mt-3 bg-[#f69a39] p-4 text-center font-medium text-[#261d2c]">Request a demo</Link></nav>}
+    {open && <nav id="mobile-navigation" aria-label="Mobile navigation" className="flex max-h-[calc(100svh-5rem)] flex-col overflow-y-auto border-t border-white/10 bg-black px-5 pb-6 lg:hidden">{links.map(([label, href]) => <Link key={label} href={href} onClick={() => setOpen(false)} className="py-4 text-white">{label}</Link>)}<a href={APP_URL} className="py-4 text-white">Sign in</a><Link href="/demo/" onClick={() => setOpen(false)} className="mt-3 bg-[#f69a39] p-4 text-center font-medium text-[#261d2c]">Request a demo</Link></nav>}
   </header></>;
 }

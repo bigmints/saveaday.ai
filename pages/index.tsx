@@ -17,6 +17,6 @@ export default function HomePage() {
     <HeroSection />
     <BusinessUseCases />
     <ProfessionalsSection />
-    <section className="bg-[#f3edf6] px-5 py-14 sm:px-8 lg:px-12"><div className="mx-auto flex max-w-[1200px] flex-col justify-between gap-7 md:flex-row md:items-center"><h2 className="display-heading">Make space for<br /><em>a better working day.</em></h2><Link href="/contact/" className="inline-flex min-h-14 shrink-0 items-center justify-center gap-6 bg-[#211a26] px-7 py-4 text-sm font-semibold text-white hover:bg-[#302735]">See it for your business <ArrowRight size={18} aria-hidden="true" /></Link></div></section>
+    <section className="bg-[#f3edf6] px-5 py-14 sm:px-8 lg:px-12"><div className="mx-auto flex max-w-[1200px] flex-col justify-between gap-7 md:flex-row md:items-center"><h2 className="display-heading">Make space for<br /><em>a better working day.</em></h2><Link href="/demo/" className="inline-flex min-h-14 shrink-0 items-center justify-center gap-6 bg-[#211a26] px-7 py-4 text-sm font-semibold text-white hover:bg-[#302735]">See it for your business <ArrowRight size={18} aria-hidden="true" /></Link></div></section>
   </PageShell>;
 }
