@@ -7,3 +7,5 @@ Both forms target the shared `leads.create` destination in the new Saveaday inst
 Forms allow embedding by `https://www.saveaday.ai` and `https://saveaday.ai`. They intentionally refuse other origins, including localhost previews. The app iframe submits to its own same-origin endpoint; no administrative API credentials or custom website receiver are involved. Existing support/callback forms and chat routing remain available.
 
 Build verification: `npm ci`, `npm run build`, then `npm run typecheck`. Next generates `next-env.d.ts` during the first build in a fresh checkout. Production acceptance also requires actual submissions from the deployed website and checking the resulting Leads in `app.saveaday.ai`.
+
+Production deployment runs `npm run typecheck` and `npm run check:enquiries` after the build and before publishing. The export check fails on a missing route, wrong form destination, missing canonical URL, mobile form shortcut or fallback/navigation link. On mobile, the introductory action jumps directly to the embedded form while retaining the explanatory content. The forms and backend were not republished by this presentation cleanup.
