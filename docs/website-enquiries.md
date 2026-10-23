@@ -9,3 +9,5 @@ Forms allow embedding by `https://www.saveaday.ai` and `https://saveaday.ai`. Th
 Build verification: `npm ci`, `npm run build`, then `npm run typecheck`. Next generates `next-env.d.ts` during the first build in a fresh checkout. Production acceptance also requires actual submissions from the deployed website and checking the resulting Leads in `app.saveaday.ai`.
 
 Production deployment runs `npm run typecheck` and `npm run check:enquiries` after the build and before publishing. The export check fails on a missing route, wrong form destination, missing canonical URL, mobile form shortcut or fallback/navigation link. On mobile, the introductory action jumps directly to the embedded form while retaining the explanatory content. The forms and backend were not republished by this presentation cleanup.
+
+The shared `APP_URL` defaults to `https://app.saveaday.ai`. Header, mobile navigation, footer, account links and the `/login/` redirect all use this value.
