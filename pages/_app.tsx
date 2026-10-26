@@ -24,7 +24,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <Script
         id="saveaday-business-chat"
         src="https://youbot.live/widget.js"
-        data-server="https://youbot.live/youbot-enquiries"
+        data-server="https://youbot.live/saveaday-frontdesk"
         strategy="afterInteractive"
       />
     </>
